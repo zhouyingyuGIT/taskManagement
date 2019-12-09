@@ -69,7 +69,7 @@
     </div>
 </div>
 </body>
-<script src="../../js/jquery.3.4.1.js"></script>
+<script src="/lattice/js/jquery.3.4.1.js"></script>
 <script>
 $(function () {
     var data=[

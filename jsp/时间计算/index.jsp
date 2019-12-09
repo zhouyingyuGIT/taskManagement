@@ -48,7 +48,7 @@
     <div id="reward" class="hide div_flex"></div>
     <div id="item1" class="item">
         <div class="zdy div_flex">
-            <img src="zdy.png" alt="">
+            <img id="zdy" src="zdy.png" alt="">
         </div>
     </div>
 
@@ -69,10 +69,10 @@
     </div>
 </div>
 </body>
-<script src="../../js/jquery.3.4.1.js"></script>
+<script src="/lattice/js/jquery.3.4.1.js"></script>
 <script>
 $(function () {
-    var data=[
+    var data1=[
         {"id":"1","topic":"5分45秒+2分12秒等于","ans1":"7","ans1Text":"分","ans2":"57","ans2Text":"秒","ans3":"0","ans3Text":"0","inputNum":"2"},
         {"id":"2","topic":"25分6秒+14分20秒等于","ans1":"39","ans1Text":"分","ans2":"26","ans2Text":"秒","ans3":"0","ans3Text":"0","inputNum":"2"},
         {"id":"3","topic":"4分2秒+45秒等于","ans1":"4","ans1Text":"分","ans2":"47","ans2Text":"秒","ans3":"0","ans3Text":"0","inputNum":"2"},
@@ -129,17 +129,40 @@ $(function () {
         {"id":"54","topic":"18时24分45秒-12时30分50秒等于","ans1":"5","ans1Text":"时","ans2":"53","ans2Text":"分","ans3":"55","ans3Text":"秒","inputNum":"3"},
         {"id":"55","topic":"4时45分24秒-2时50分45秒等于","ans1":"1","ans1Text":"时","ans2":"54","ans2Text":"分","ans3":"39","ans3Text":"秒","inputNum":"3"},
         {"id":"56","topic":"7时20分50秒-4时50分55秒等于","ans1":"2","ans1Text":"时","ans2":"29","ans2Text":"分","ans3":"55","ans3Text":"秒","inputNum":"3"}
+    ],data2=[
+        {"id":"1","topic":"2分3秒+4分6秒等于","ans1":"6","ans1Text":"分","ans2":"9","ans2Text":"秒","ans3":"0","ans3Text":"0","inputNum":"2"},
+        {"id":"2","topic":"12分20秒+3分45秒等于","ans1":"16","ans1Text":"分","ans2":"5","ans2Text":"秒","ans3":"0","ans3Text":"0","inputNum":"2"},
+        {"id":"3","topic":"5分20秒-3分10秒等于","ans1":"2","ans1Text":"分","ans2":"10","ans2Text":"秒","ans3":"0","ans3Text":"0","inputNum":"2"},
+        {"id":"4","topic":"5分20秒-3分40秒等于","ans1":"1","ans1Text":"分","ans2":"40","ans2Text":"秒","ans3":"0","ans3Text":"0","inputNum":"2"}
     ];
+    var data=[];
     var data_index=0,data_lenght;
-    var spacer=true;
+    var spacer=true,taskid=0,feedback=false;
     var time,beginTime,endTime;
     var timer1=null,timer;
     var maxtime=1200,time1=200;
     var corT=[],butT=[];
     var stimidset=[],timeset=[],correctanswerset=[],buttonset=[],type4set=[],commentset=[];
+    taskid=getUrlParam("taskid");
+    taskidFun(taskid);
+    function taskidFun(taskid){
+        if(taskid === "5981"){
+            data=data1;
+            $("#zdy").attr("src","zdy1.png");
+            time1=200;
+            $("#reward").addClass("op");
+            feedback=false;
+        }else if(taskid === "5980"){
+            data=data2;
+            $("#zdy").attr("src","zdy.png");
+            time1=1000;
+            $("#reward").removeClass("op");
+            feedback=true;
+        }
+    }
+
     data_lenght=data.length;
     pushArr(data);
-
     function topicFun(data_index){
         $("#label3").addClass("hide");
         $("#topic").text(data[data_index].topic);
@@ -172,8 +195,14 @@ $(function () {
         }
         if(a1 === b1 && a2 === b2 && at){
             commentset.push(1);
+            if(feedback){
+                $("#reward").text("答对了");
+            }
         }else {
             commentset.push(0);
+            if(feedback){
+                $("#reward").text("答错了");
+            }
         }
         correctanswerset.push(corT.join(","));
         buttonset.push(butT.join(","));
@@ -225,6 +254,11 @@ $(function () {
             array[i] = array[j];
             array[j] = temp;
         }
+    }
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
     }
     $(document).keydown(function (event) {
         var e = event || window.event;

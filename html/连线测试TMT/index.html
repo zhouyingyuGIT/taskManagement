@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>连线测试TMT</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="box" id="box">
+    <div id="item1" class="item div_flex">
+        <div id="TMTAtest" class="TMTAtest TMTBox">
+            <div class="TMT div_flex active TMTActive Atest1 begin">1</div>
+            <hr class="hr hr1 hide">
+            <div class="TMT div_flex Atest2">2</div>
+            <hr class="hr hr2 hide">
+            <div class="TMT div_flex Atest3">3</div>
+            <hr class="hr hr3 hide">
+            <div class="TMT div_flex Atest4">4</div>
+            <hr class="hr hr4 hide">
+            <div class="TMT div_flex Atest5">5</div>
+            <hr class="hr hr5 hide">
+            <div class="TMT div_flex Atest6">6</div>
+            <hr class="hr hr6 hide">
+            <div class="TMT div_flex Atest7">7</div>
+            <hr class="hr hr7 hide">
+            <div class="TMT div_flex Atest8 end">8</div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../../js/jquery.3.4.1.js"></script>
+<script>
+    $(function () {
+        var Atest=["1", "2", "3", "4", "5", "6", "7", "8"];
+        var A=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
+        var Btest=["1","A","2","B","3","C","4","D"];
+        var B=["1","A","2","B", "3","C", "4","D", "5","E","6","F","7","G","8","H","9","I","10","J","11","K","12","L","13"];
+        var data=Atest;
+        var data_index=1;
+        var errorNum=0;
+        var data_lenght=data.length;
+        $(".TMT").on("click",function () {
+            var num1=$(this).text();
+            var num2=data[data_index];
+            if(num1 === num2){
+                $(".TMT").removeClass("active");
+                $(this).addClass("active TMTActive");
+                $(".hr"+(num2-1)).removeClass("hide");
+                data_index++;
+                if(data_index>=8){
+                    alert("结束");
+                }
+            }else {
+                if(num1 !== "1"){
+                    alert("错误")
+                }
+            }
+        })
+    })
+</script>
+</html>
