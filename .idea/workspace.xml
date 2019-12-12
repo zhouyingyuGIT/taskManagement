@@ -2,26 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0709260c-9ce5-45a7-8fc5-3aaac35d0790" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/html/3back/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/3back/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/4BackF.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/时间复制/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/时间复制/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/时间复制/luobo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/时间复制/tuzi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/连线测试TMT/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/连线测试TMT/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsp/时间复制/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsp/时间复制/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsp/时间复制/luobo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsp/时间复制/tuzi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jsp/时间计算/zdy1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/比较时间/dlam.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/比较时间/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/比较时间/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/比较时间/xyy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/连线测试TMT/123.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/连线测试TMT/2-01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/连线测试TMT/4-01.tif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/时间计算/zdy.png" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间计算/zdy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsp/时间计算(练习)/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间计算(练习)/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsp/时间计算/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间计算/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsp/时间计算/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间计算/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsp/时间计算/zdy.png" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间计算/zdy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/时间复制/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间复制/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/时间复制/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间复制/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/连线测试TMT/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/连线测试TMT/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsp/时间复制/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间估值/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsp/时间复制/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间估值/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsp/时间复制/luobo.png" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间估值/luobo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsp/时间复制/tuzi.png" beforeDir="false" afterPath="$PROJECT_DIR$/jsp/时间估值/tuzi.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Drenwu" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -65,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\zhouyingyu\project\taskManagement\jsp\时间估值" />
+      <recent name="D:\zhouyingyu\project\taskManagement\html\比较时间" />
+      <recent name="D:\zhouyingyu\project\taskManagement\html\连线测试TMT" />
       <recent name="D:\zhouyingyu\project\taskManagement\html" />
       <recent name="D:\zhouyingyu\project\taskManagement\jsp\时间复制" />
-      <recent name="D:\zhouyingyu\project\taskManagement\jsp" />
-      <recent name="D:\zhouyingyu\project\taskManagement\html\时间复制" />
-      <recent name="D:\zhouyingyu\project\taskManagement\jsp\时间计算" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -96,6 +92,11 @@
       <updated>1575620163465</updated>
       <workItem from="1575620164977" duration="6677000" />
       <workItem from="1575853549440" duration="29158000" />
+      <workItem from="1575896795369" duration="107000" />
+      <workItem from="1575939428130" duration="20357000" />
+      <workItem from="1575977596820" duration="5342000" />
+      <workItem from="1576026129098" duration="12918000" />
+      <workItem from="1576112337005" duration="7008000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1575620496404</created>
@@ -104,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575620496404</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="添加任务">
+      <created>1575896883858</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575896883858</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,20 +120,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第一次提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一次提交" />
+    <MESSAGE value="添加任务" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加任务" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1575620494946">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1575620494946" />
-    <state x="421" y="119" key="FileChooserDialogImpl" timestamp="1575872519351">
+    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1575896882874">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="421" y="119" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1575872519351" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1575620500502">
+    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1575620494946" />
+    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.720@0.0.1280.720" timestamp="1575896882874" />
+    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1576115381753">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576115381753" />
+    <state x="421" y="119" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1575872519351" />
+    <state x="233" y="82" key="Vcs.Push.Dialog.v2" timestamp="1575896886297">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
     <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1575620500502" />
+    <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1575896886297" />
   </component>
 </project>

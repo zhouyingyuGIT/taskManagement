@@ -28,6 +28,11 @@ html,body,#box,.item{
     /*background: #2e6da4;*/
     position: relative;
 }
+.TMTA{
+    width: 686px;
+    height: 500px;
+    position: relative;
+}
 .hr{
     height: 2px;
     background: #f00;
@@ -125,6 +130,17 @@ html,body,#box,.item{
     position: absolute;
     background: #fff;
 }
+.TMTZ{
+    width: 48px;
+    height: 48px;
+    border: 1px solid #000000;
+    border-radius: 100px;
+    font-size: 32px;
+    font-weight: 900;
+    cursor: pointer;
+    position: absolute;
+    background: #fff;
+}
 
 .begin:before{
     content: "开始";
@@ -181,4 +197,242 @@ html,body,#box,.item{
     top:140px;
     left: 310px;
     z-index: 10;
+}
+
+/*正式圆位置*/
+.A1{
+    top:328px;
+    left: 244px;
+    z-index: 10;
+}
+.A2{
+    top:204px;
+    left: 150px;
+    z-index: 10;
+}
+.A3{
+    top:377px;
+    left: 125px;
+    z-index: 10;
+}
+.A4{
+    top:355px;
+    left: 381px;
+    z-index: 10;
+}
+.A5{
+    top:182px;
+    left: 356px;
+    z-index: 10;
+}
+.A6{
+    top:265px;
+    left: 303px;
+    z-index: 10;
+}
+.A7{
+    top:162px;
+    left: 235px;
+    z-index: 10;
+}
+.A8{
+    top:75px;
+    left: 115px;
+    z-index: 10;
+}
+.A9{
+    top:109px;
+    left: 44px;
+    z-index: 10;
+}
+.A10{
+    top:150px;
+    left: 122px;
+    z-index: 10;
+}
+.A11{
+    top:301px;
+    left: 25px;
+    z-index: 10;
+}
+.A12{
+    top:20px;
+    left: -4px;
+    z-index: 10;
+}
+.A13{
+    top:66px;
+    left: 303px;
+    z-index: 10;
+}
+.A14{
+    top:5px;
+    left: 214px;
+    z-index: 10;
+}
+.A15{
+    top:2px;
+    left: 567px;
+    z-index: 10;
+}
+.A16{
+    top:66px;
+    left: 461px;
+    z-index: 10;
+}
+.A17{
+    top:228px;
+    left: 588px;
+    z-index: 10;
+}
+.A18{
+    top:210px;
+    left: 435px;
+    z-index: 10;
+}
+.A19{
+    top:380px;
+    left: 529px;
+    z-index: 10;
+}
+.A20{
+    top:285px;
+    left: 529px;
+    z-index: 10;
+}
+.A21{
+    top:428px;
+    left: 598px;
+    z-index: 10;
+}
+.A22{
+    top:430px;
+    left: 396px;
+    z-index: 10;
+}
+.A23{
+    top:448px;
+    left: 13px;
+    z-index: 10;
+}
+.A24{
+    top:417px;
+    left: 264px;
+    z-index: 10;
+}
+.A25{
+    top:390px;
+    left: 32px;
+    z-index: 10;
+}
+/*正式线位置*/
+.Ahr1{
+    width: 136px;
+    top: 286px;
+    left: 154px;
+    z-index: 1;
+    transform:rotate(50deg);
+    -ms-transform:rotate(50deg); 	/* IE 9 */
+    -moz-transform:rotate(50deg); 	/* Firefox */
+    -webkit-transform:rotate(50deg); /* Safari 和 Chrome */
+    -o-transform:rotate(50deg);
+}
+.Ahr2{
+    width: 136px;
+    top: 312px;
+    left: 96px;
+    z-index: 1;
+    transform:rotate(100deg);
+    -ms-transform:rotate(100deg); 	/* IE 9 */
+    -moz-transform:rotate(100deg); 	/* Firefox */
+    -webkit-transform:rotate(100deg); /* Safari 和 Chrome */
+    -o-transform:rotate(100deg);
+}
+.Ahr3{
+    width: 260px;
+    top: 397px;
+    left: 140px;
+    z-index: 1;
+    transform:rotate(-4deg);
+    -ms-transform:rotate(-4deg); 	/* IE 9 */
+    -moz-transform:rotate(-4deg); 	/* Firefox */
+    -webkit-transform:rotate(-4deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-4deg);
+}
+.Ahr4{
+    width: 150px;
+    top: 284px;
+    left: 314px;
+    z-index: 1;
+    transform:rotate(80deg);
+    -ms-transform:rotate(80deg); 	/* IE 9 */
+    -moz-transform:rotate(80deg); 	/* Firefox */
+    -webkit-transform:rotate(80deg); /* Safari 和 Chrome */
+    -o-transform:rotate(80deg);
+}
+.Ahr5{
+    width: 70px;
+    top: 252px;
+    left: 314px;
+    z-index: 1;
+    transform:rotate(120deg);
+    -ms-transform:rotate(120deg); 	/* IE 9 */
+    -moz-transform:rotate(120deg); 	/* Firefox */
+    -webkit-transform:rotate(120deg); /* Safari 和 Chrome */
+    -o-transform:rotate(120deg);
+}
+.Ahr6{
+    width: 100px;
+    top: 240px;
+    left: 248px;
+    z-index: 1;
+    transform:rotate(60deg);
+    -ms-transform:rotate(60deg); 	/* IE 9 */
+    -moz-transform:rotate(60deg); 	/* Firefox */
+    -webkit-transform:rotate(60deg); /* Safari 和 Chrome */
+    -o-transform:rotate(60deg);
+}
+.Ahr7{
+    width: 120px;
+    top: 140px;
+    left: 138px;
+    z-index: 1;
+    transform:rotate(40deg);
+    -ms-transform:rotate(40deg); 	/* IE 9 */
+    -moz-transform:rotate(40deg); 	/* Firefox */
+    -webkit-transform:rotate(40deg); /* Safari 和 Chrome */
+    -o-transform:rotate(40deg);
+}
+.Ahr8{
+    width: 50px;
+    top: 113px;
+    left: 84px;
+    z-index: 1;
+    transform:rotate(-40deg);
+    -ms-transform:rotate(-40deg); 	/* IE 9 */
+    -moz-transform:rotate(-40deg); 	/* Firefox */
+    -webkit-transform:rotate(-40deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-40deg);
+}
+.Ahr9{
+    width: 50px;
+    top: 156px;
+    left: 84px;
+    z-index: 1;
+    transform:rotate(40deg);
+    -ms-transform:rotate(40deg); 	/* IE 9 */
+    -moz-transform:rotate(40deg); 	/* Firefox */
+    -webkit-transform:rotate(40deg); /* Safari 和 Chrome */
+    -o-transform:rotate(40deg);
+}
+.Ahr10{
+    width: 50px;
+    top: 156px;
+    left: 84px;
+    z-index: 1;
+    transform:rotate(40deg);
+    -ms-transform:rotate(40deg); 	/* IE 9 */
+    -moz-transform:rotate(40deg); 	/* Firefox */
+    -webkit-transform:rotate(40deg); /* Safari 和 Chrome */
+    -o-transform:rotate(40deg);
 }

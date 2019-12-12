@@ -11,14 +11,14 @@ html,body,#box,.item{
 #box .hide{
     display: none;
 }
+#box img{
+    max-height: 90%;
+    max-width: 90%;
+}
 .div_flex{
     display: flex;
     align-items:center;
     justify-content:center;
-}
-#box img{
-    max-width: 100%;
-    max-height: 90%;
 }
 #zdy{
     width: 80%;
@@ -27,11 +27,4 @@ html,body,#box,.item{
     font-size: 2em;
     line-height: 1.5em;
     text-indent: 2em;
-}
-.item2{
-    background: #000;
-}
-#item5{
-    font-size: 2em;
-    line-height: 1.5em;
 }

@@ -77,3 +77,12 @@ input{
     font-size: 2em;
     line-height: 1.5em;
 }
+#item6{
+    font-size: 24px;
+}
+#item6.hs{
+    color: #ff0000;
+}
+#item6.ls{
+    color: #2e6da4;
+}
