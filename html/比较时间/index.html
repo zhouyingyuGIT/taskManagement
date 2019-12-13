@@ -46,7 +46,7 @@
         var data_index=-1,data_length=0,taskid=0,taskid1="正式ID",taskid2="练习ID";
         var correctanswerset=[],buttonset=[];
         taskid=getUrlParam("taskid");
-        taskidFun(taskid1);
+        taskidFun(taskid2);
         function timer1Fun() {
             data_index++;
             if(data_index>=data_length){
@@ -137,12 +137,25 @@
             if (r != null) return unescape(r[2]); return null;
         }
         function allKeyFun(key){
+            var ans1="";
             if(dlam[data_index]<3000){
-                correctanswerset.push("Q")
+                correctanswerset.push("Q");
+                ans1="Q";
             }else {
-                correctanswerset.push("P")
+                correctanswerset.push("P");
+                ans1="P";
             }
             buttonset.push(key);
+            if(reward){
+                $("#item7").removeClass("ls hs");
+                if(ans1 === key){
+                    $("#item7").addClass("ls");
+                    $("#item7").text("答对了")
+                }else {
+                    $("#item7").addClass("hs");
+                    $("#item7").text("答错了");
+                }
+            }
             timer5Fun();
         }
 

@@ -28,3 +28,12 @@ html,body,#box,.item{
     line-height: 1.5em;
     text-indent: 2em;
 }
+#item7{
+    font-size: 38px;
+}
+#item7.hs{
+    color: #ff0000;
+}
+#item7.ls{
+    color: #2e6da4;
+}
