@@ -6,7 +6,24 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
 <div class="box" id="box">
+    <div id="reward" class="hide">
+        <div class="div_flex reward">
+            <span class="prompt" id="prompt1">您连错了，你现在连到了1，下一个应该连什么? 是A吗？</span>
+            <span>&nbsp;</span>
+            <span class="prompt" id="prompt2" style="">你面前的屏幕有一些圆圈，圆圈里有数字。请用鼠标按照 1、2、3 一直到8的顺序点击它们。从开始键1开始，1连2，2连3直到连接到8为止。不能跳隔数字，要一个接一个的点击，要求快速并且准确。现在试着连接一下。</span>
+        </div>
+    </div>
+    <div id="item1" class="item hide">
+        <div class="item div_flex zdy">
+            你面前的屏幕有一些圆圈，圆圈里有数字。请用鼠标按照 1、2、3 一直到8的顺序点击它们。从开始键1开始，1连2，2连3直到连接到8为止。不能跳隔数字，要一个接一个的点击，要求快速并且准确。现在试着连接一下。
+        </div>
+    </div>
+    <div id="item4" class="item">
+        <div class="item div_flex zdy">
+            在屏幕上会呈现1到25这些数字，它们没有规律散乱地分布，需要按照 1、2、3 一直到 25 的顺序把点击它们，不能跳隔数字，要一个接一个的连接，要求快速并且准确。起始为1，连接到 25 为止，开始。(立即开始计时)        </div>
+        </div>
     <div id="item2" class="item div_flex hide">
         <div id="TMTAtest" class="TMTAtest TMTBox">
             <div class="TMT div_flex active TMTActive Atest1 begin">1</div>
@@ -26,7 +43,7 @@
             <div class="TMT div_flex Atest8 end">8</div>
         </div>
     </div>
-    <div id="item3" class="item div_flex">
+    <div id="item3" class="item div_flex hide">
         <div id="TMTA" class="TMTA TMTBox">
 <!--            <img src="123.png" alt="" style="height: 500px;width: 686px;position: absolute;top: 0px;left: 0px;z-index: 0">-->
             <div style="height: 500px;width: 686px;position: absolute;top: 0px;left: 0px;z-index: 3;opacity: 0.6">
@@ -51,19 +68,33 @@
                 <div class="TMTZ div_flex A10">10</div>
                 <hr class="hr Ahr10">
                 <div class="TMTZ div_flex A11">11</div>
+                <hr class="hr Ahr11">
                 <div class="TMTZ div_flex A12">12</div>
+                <hr class="hr Ahr12">
                 <div class="TMTZ div_flex A13">13</div>
+                <hr class="hr Ahr13">
                 <div class="TMTZ div_flex A14">14</div>
+                <hr class="hr Ahr14">
                 <div class="TMTZ div_flex A15">15</div>
+                <hr class="hr Ahr15">
                 <div class="TMTZ div_flex A16">16</div>
+                <hr class="hr Ahr16">
                 <div class="TMTZ div_flex A17">17</div>
+                <hr class="hr Ahr17">
                 <div class="TMTZ div_flex A18">18</div>
+                <hr class="hr Ahr18">
                 <div class="TMTZ div_flex A19">19</div>
+                <hr class="hr Ahr19">
                 <div class="TMTZ div_flex A20">20</div>
+                <hr class="hr Ahr20">
                 <div class="TMTZ div_flex A21">21</div>
+                <hr class="hr Ahr21">
                 <div class="TMTZ div_flex A22">22</div>
+                <hr class="hr Ahr22">
                 <div class="TMTZ div_flex A23">23</div>
+                <hr class="hr Ahr23">
                 <div class="TMTZ div_flex A24">24</div>
+                <hr class="hr Ahr24">
                 <div class="TMTZ div_flex A25">25</div>
 <!--                <div class="TMTZ div_flex A16">16</div>-->
 <!--                <div class="TMTZ div_flex end">25</div>-->
@@ -108,10 +139,11 @@
         var A=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
         var Btest=["1","A","2","B","3","C","4","D"];
         var B=["1","A","2","B", "3","C", "4","D", "5","E","6","F","7","G","8","H","9","I","10","J","11","K","12","L","13"];
+        var spacer=true;
         var data=Atest;
-        var data_index=1;
-        var errorNum=0;
-        var data_lenght=data.length;
+        var data_index=1,errorNum=0,data_lenght=0;
+        var time1=3000,timer1=null;
+        data_lenght=data.length;
         $(".TMT").on("click",function () {
             var num1=$(this).text();
             var num2=data[data_index];
@@ -125,10 +157,33 @@
                 }
             }else {
                 if(num1 > num2){
-                    alert("错误")
+                    errorNum++;
+                    if(errorNum>3){
+                        $("#prompt2").addClass("hide")
+                    }
+                    timer1Fun();
                 }
             }
-        })
+        });
+        function timer1Fun(){
+            $("#reward").removeClass("hide");
+            timer1 = setInterval(function () {
+                $("#reward").addClass("hide");
+                clearInterval(timer1);
+                timer1=null;
+            }, time1);
+        }
+        $(document).keydown(function (event) {
+            var e = event || window.event;
+            var k = e.keyCode || e.which;
+            if(k == 32){
+                if(spacer){
+                    spacer=false;
+                    $("#item1").addClass("hide");
+                    $("#item2").removeClass("hide");
+                }
+            }
+        });
     })
 </script>
 </html>
