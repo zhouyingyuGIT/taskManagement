@@ -30,22 +30,24 @@ html,body,#box,.item{
     text-indent: 2em;
 }
 #reward{
+
+}
+.reward1{
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: 99999;
     background: #fff;
+    font-size: 24px;
 }
 .reward{
-
     flex-flow: column;
     width: 70%;
     height: 70%;
     margin: 0 auto;
-    font-size: 24px;
+
     top: 0px;
     left: 0px;
-
 }
 .prompt{
     text-indent: 2em;

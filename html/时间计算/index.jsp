@@ -140,7 +140,7 @@ $(function () {
     var spacer=true,taskid=0,feedback=false;
     var time,beginTime,endTime;
     var timer1=null,timer;
-    var maxtime=1200,time1=200;
+    var maxtime=300,time1=200;
     var corT=[],butT=[];
     var stimidset=[],timeset=[],correctanswerset=[],buttonset=[],type4set=[],commentset=[];
     taskid=getUrlParam("taskid");

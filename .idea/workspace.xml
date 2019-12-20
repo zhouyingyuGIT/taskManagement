@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0709260c-9ce5-45a7-8fc5-3aaac35d0790" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/连线测试TMT/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/连线测试TMT/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/4BackF.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/时间计算/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间计算/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/2-01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/4-01.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/2-01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/4-01.tif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/html/连线测试TMT2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -48,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\zhouyingyu\project\taskManagement\html\连线测试TMT2" />
+      <recent name="D:\zhouyingyu\project\taskManagement\html\连线测试TMT" />
+      <recent name="D:\zhouyingyu\project\taskManagement\html" />
       <recent name="D:\zhouyingyu\project\taskManagement\html\时间计算" />
       <recent name="D:\zhouyingyu\project\taskManagement\html\比较时间" />
-      <recent name="D:\zhouyingyu\project\taskManagement\html\时间复制" />
-      <recent name="D:\zhouyingyu\project\taskManagement\jsp" />
-      <recent name="D:\zhouyingyu\project\taskManagement\jsp\时间估值" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -88,7 +101,11 @@
       <workItem from="1576239859387" duration="865000" />
       <workItem from="1576378990554" duration="11700000" />
       <workItem from="1576463364568" duration="8434000" />
-      <workItem from="1576544797877" duration="6715000" />
+      <workItem from="1576544797877" duration="6891000" />
+      <workItem from="1576648128578" duration="2496000" />
+      <workItem from="1576671482502" duration="2733000" />
+      <workItem from="1576731693554" duration="22852000" />
+      <workItem from="1576803894481" duration="7357000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1575620496404</created>
@@ -125,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576483009843</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修改任务">
+      <created>1576580640785</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576580640785</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,20 +162,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="修改任务" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1576483009220">
+    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1576580640188">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576483009220" />
+    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576580640188" />
     <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.720@0.0.1280.720" timestamp="1575896882874" />
-    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1576553623609">
+    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1576655135057">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576553623609" />
+    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576655135057" />
     <state x="421" y="119" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1575872519351" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1576483018967">
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1576580643072">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576483018967" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576580643072" />
     <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1575896886297" />
   </component>
 </project>
