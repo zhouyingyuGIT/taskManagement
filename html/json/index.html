@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            background: #0ff;
+        }
+        .item{
+            height: 48px;
+            width: 48px;
+            color: #2e6da4;
+            border-radius: 100px;
+            text-align: center;
+            line-height: 48px;
+            float: left;
+            /*border: 1px solid #2e6da4;*/
+        }
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="box" class="clearfix"></div>
+</div>
+</body>
+<script src="../../js/jquery.3.4.1.js"></script>
+<script>
+    $(function () {
+        var data1= ['t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11','t21','t13','t14','t15','t16','t17','t18']
+        var ans=[2,4,3,2,5,5,1,4,2,3,1,5,2,1,5,3,4,2];
+        var data=[];
+        // arrFun();
+        function arrFun() {
+            for(var i=0;i<18;i++){
+                var por={
+                    id:"",
+                    url:"",
+                    option:[],
+                    ans:"",
+                    type:"1"
+                };
+                por.id=i+1;
+                por.url="task_3_img/"+data1[i]+".png";
+                por.ans=ans[i];
+                for(var k=0;k<5;k++){
+                    var option={
+                        id:"",
+                        url:""
+                    };
+                    option.id=k+1;
+                    option.url="task_3_img/"+data1[i]+"_"+(k+1)+".png";
+                    por.option.push(option)
+                }
+                data.push(por);
+            }
+            console.log(data);
+            // $("#box").text(JSON.stringify(data))
+        }
+        function colorFun() {
+            for(var i=0;i<=255;i++){
+                var div="<div class='item' style='background: rgb(0,"+i+","+i+")'>"+i+"</div>";
+                $("#box").append(div);
+            }
+        }
+        colorFun();
+    })
+</script>
+</html>

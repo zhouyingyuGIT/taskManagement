@@ -2,22 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0709260c-9ce5-45a7-8fc5-3aaac35d0790" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/json/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/亮度/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/亮度/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/4BackF.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/时间计算/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间计算/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/2-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/4-01.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/2-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/4-01.tif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/连线测试TMT2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/数字加字母连线测试/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/数字加字母连线测试/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/数字加字母连线测试/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/数字连线测试/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/数字连线测试/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/数字连线测试/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/html/连线测试TMT2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -57,7 +51,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion.SSH" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -81,7 +75,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\mathgroup\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -105,7 +99,9 @@
       <workItem from="1576648128578" duration="2496000" />
       <workItem from="1576671482502" duration="2733000" />
       <workItem from="1576731693554" duration="22852000" />
-      <workItem from="1576803894481" duration="7357000" />
+      <workItem from="1576803894481" duration="10528000" />
+      <workItem from="1576832404438" duration="2086000" />
+      <workItem from="1577068876386" duration="13143000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1575620496404</created>
@@ -149,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576580640785</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="提交连线任务">
+      <created>1576811909301</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576811909301</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,23 +162,32 @@
     <MESSAGE value="第一次提交" />
     <MESSAGE value="添加任务" />
     <MESSAGE value="修改任务" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改任务" />
+    <MESSAGE value="提交连线任务" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交连线任务" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1576580640188">
+    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1576811908705">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576580640188" />
+    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576811908705" />
     <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.720@0.0.1280.720" timestamp="1575896882874" />
-    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1576655135057">
+    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1577084211714">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1576655135057" />
+    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577084211714" />
     <state x="421" y="119" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1575872519351" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1576580643072">
+    <state x="144" y="0" key="SettingsEditor" timestamp="1576832742630">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576580643072" />
+    <state x="144" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576832742630" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1576811911802">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576811911802" />
     <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1575896886297" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1577071473008">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1577071473008" />
   </component>
 </project>

@@ -138,7 +138,7 @@
                 <hr class="hr Ahr23 hide">
                 <div class="TMTZ div_flex A24">24</div>
                 <hr class="hr Ahr24 hide">
-                <div class="TMTZ div_flex A25">25</div>
+                <div class="TMTZ div_flex A25 end">25</div>
 <!--                <div class="TMTZ div_flex A16">16</div>-->
 <!--                <div class="TMTZ div_flex end">25</div>-->
             </div>
@@ -182,7 +182,7 @@
         var A=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
         var Btest=["1","A","2","B","3","C","4","D"];
         var B=["1","A","2","B", "3","C", "4","D", "5","E","6","F","7","G","8","H","9","I","10","J","11","K","12","L","13"];
-        var spacer=true,spacer1=false;
+        var spacer=true,spacer1=false,reward=false;
         var data=Atest;
         var time,beginTime,endTime;
         var data_index=1,errorNum=0;
@@ -250,7 +250,9 @@
             $("#reward").removeClass("hide");
             timer1 = setInterval(function () {
                 $("#reward").addClass("hide");
-                timer2Fun();
+                if(reward){
+                    timer2Fun();
+                }
                 clearInterval(timer1);
                 timer1=null;
             }, time1);
@@ -283,7 +285,6 @@
                 timer=null;
             }
         }
-
         $(document).keydown(function (event) {
             var e = event || window.event;
             var k = e.keyCode || e.which;
@@ -297,6 +298,7 @@
                 }
                 if(spacer1){
                     spacer1=false;
+                    reward=true;
                     $("#prompt2").text("在屏幕上会呈现1到25这些数字，它们没有规律散乱地分布，需要按照 1、2、3 一直到 25 的顺序把点击它们，不能跳隔数字，要一个接一个的连接，要求快速并且准确。起始为1，连接到 25 为止")
                     $("#item4").addClass("hide");
                     $("#item3").removeClass("hide");

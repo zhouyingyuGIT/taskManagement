@@ -141,7 +141,7 @@
                 <hr class="hr Ahr23 hide">
                 <div data-index="24" class="TMTZ div_flex A24">L</div>
                 <hr class="hr Ahr24 hide">
-                <div data-index="25" class="TMTZ div_flex A25">13</div>
+                <div data-index="25" class="TMTZ div_flex A25 end">13</div>
 <!--                <div class="TMTZ div_flex A16">16</div>-->
 <!--                <div class="TMTZ div_flex end">25</div>-->
             </div>

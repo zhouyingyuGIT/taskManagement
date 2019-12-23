@@ -1,3 +1,4 @@
+@charset "utf-8";
 *{
     margin: 0px;
     padding: 0px;
@@ -173,7 +174,7 @@ html,body,#box,.item{
 }
 
 .begin:before{
-    content: "开始";
+    content: '\5f00\59cb';
     position: absolute;
     top: -36px;
     color: #2e6da4;
@@ -181,7 +182,8 @@ html,body,#box,.item{
     cursor: auto;
 }
 .end:before{
-    content: "结束";
+    /*content: '\66F4 \591A';*/
+    content: '\7ed3\675f';
     position: absolute;
     top: -36px;
     color: #2e6da4;
