@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0709260c-9ce5-45a7-8fc5-3aaac35d0790" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/html/json/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/亮度/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/亮度/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/swiper.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/WCSTF/WCSTF.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/数学认知训练/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/数学认知训练/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/swiper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/数字加字母连线测试/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/数字加字母连线测试/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/数字加字母连线测试/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字加字母连线测试/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/数字连线测试/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/数字连线测试/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/数字连线测试/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/数字连线测试/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/感数任务/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/感数任务/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lattice" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -51,15 +48,18 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion.SSH" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\zhouyingyu\project\taskManagement\html\wskx" />
+      <recent name="D:\zhouyingyu\project\taskManagement\js" />
       <recent name="D:\zhouyingyu\project\taskManagement\html\连线测试TMT2" />
       <recent name="D:\zhouyingyu\project\taskManagement\html\连线测试TMT" />
       <recent name="D:\zhouyingyu\project\taskManagement\html" />
-      <recent name="D:\zhouyingyu\project\taskManagement\html\时间计算" />
-      <recent name="D:\zhouyingyu\project\taskManagement\html\比较时间" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\zhouyingyu\project\taskManagement\css" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -102,6 +102,11 @@
       <workItem from="1576803894481" duration="10528000" />
       <workItem from="1576832404438" duration="2086000" />
       <workItem from="1577068876386" duration="13143000" />
+      <workItem from="1577100319817" duration="4831000" />
+      <workItem from="1577155822146" duration="4204000" />
+      <workItem from="1577239697530" duration="179000" />
+      <workItem from="1577242557048" duration="11187000" />
+      <workItem from="1577344186142" duration="4723000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1575620496404</created>
@@ -152,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576811909301</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="提交连线任务">
+      <created>1577100436554</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1577100436554</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,24 +178,24 @@
     <option name="LAST_COMMIT_MESSAGE" value="提交连线任务" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1576811908705">
+    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1577100435877">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1576811908705" />
+    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577100435877" />
     <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.720@0.0.1280.720" timestamp="1575896882874" />
-    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1577084211714">
+    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1577246034808">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577084211714" />
+    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577246034808" />
     <state x="421" y="119" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1575872519351" />
-    <state x="144" y="0" key="SettingsEditor" timestamp="1576832742630">
+    <state x="144" y="0" key="SettingsEditor" timestamp="1577158306200">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="144" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1576832742630" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1576811911802">
+    <state x="144" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577158306200" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1577100443209">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1576811911802" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577100443209" />
     <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1575896886297" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1577071473008">
       <screen x="0" y="0" width="1280" height="680" />

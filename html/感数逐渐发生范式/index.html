@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>感数任务</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="box" class="box">
+    <div id="item2" class="item">
+        <div id="item2_1" class="item2_1 div_flex">
+            <div id="item2_1_1" class="item2_1_1">
+                <img src="img/A_1_1.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/lattice/js/jquery.3.4.1.js"></script>
+<script>
+    $(function () {
+        var data=[
+            {"ID":"1","ANS":"1","TOPIC":"img/A_1_1.png"},
+            {"ID":"2","ANS":"1","TOPIC":"img/A_1_2.png"},
+            {"ID":"3","ANS":"1","TOPIC":"img/A_1_3.png"},
+            {"ID":"4","ANS":"2","TOPIC":"img/A_2_1.png"},
+            {"ID":"5","ANS":"2","TOPIC":"img/A_2_2.png"},
+            {"ID":"6","ANS":"2","TOPIC":"img/A_2_3.png"},
+            {"ID":"7","ANS":"3","TOPIC":"img/A_3_1.png"},
+            {"ID":"8","ANS":"3","TOPIC":"img/A_3_2.png"},
+            {"ID":"9","ANS":"3","TOPIC":"img/A_3_3.png"},
+            {"ID":"10","ANS":"4","TOPIC":"img/A_4_1.png"},
+            {"ID":"11","ANS":"4","TOPIC":"img/A_4_2.png"},
+            {"ID":"12","ANS":"4","TOPIC":"img/A_4_3.png"},
+            {"ID":"13","ANS":"5","TOPIC":"img/A_5_1.png"},
+            {"ID":"14","ANS":"5","TOPIC":"img/A_5_2.png"},
+            {"ID":"15","ANS":"5","TOPIC":"img/A_5_3.png"},
+            {"ID":"16","ANS":"6","TOPIC":"img/A_6_1.png"},
+            {"ID":"17","ANS":"6","TOPIC":"img/A_6_2.png"},
+            {"ID":"18","ANS":"6","TOPIC":"img/A_6_3.png"},
+            {"ID":"19","ANS":"1","TOPIC":"img/B_1_1.png"},
+            {"ID":"20","ANS":"1","TOPIC":"img/B_1_2.png"},
+            {"ID":"21","ANS":"1","TOPIC":"img/B_1_3.png"},
+            {"ID":"22","ANS":"2","TOPIC":"img/B_2_1.png"},
+            {"ID":"23","ANS":"2","TOPIC":"img/B_2_2.png"},
+            {"ID":"24","ANS":"2","TOPIC":"img/B_2_3.png"},
+            {"ID":"25","ANS":"3","TOPIC":"img/B_3_1.png"},
+            {"ID":"26","ANS":"3","TOPIC":"img/B_3_2.png"},
+            {"ID":"27","ANS":"3","TOPIC":"img/B_3_3.png"},
+            {"ID":"28","ANS":"4","TOPIC":"img/B_4_1.png"},
+            {"ID":"29","ANS":"4","TOPIC":"img/B_4_2.png"},
+            {"ID":"30","ANS":"4","TOPIC":"img/B_4_3.png"},
+            {"ID":"31","ANS":"5","TOPIC":"img/B_5_1.png"},
+            {"ID":"32","ANS":"5","TOPIC":"img/B_5_2.png"},
+            {"ID":"33","ANS":"5","TOPIC":"img/B_5_3.png"},
+            {"ID":"34","ANS":"6","TOPIC":"img/B_6_1.png"},
+            {"ID":"35","ANS":"6","TOPIC":"img/B_6_2.png"},
+            {"ID":"36","ANS":"6","TOPIC":"img/B_6_3.png"}
+        ];
+        var time1=100,time2=300;
+        var timer1=null,timer2=null;
+        var spacer=true,PKey=false;
+        var data_index=121;
+        // topicFun(data);
+        function timer1Fun() {
+            $("#item2_1_1").css({"background":"rgb("+data_index+","+data_index+","+data_index+")"});
+            timer1 = setInterval(function () {
+                timer2Fun();
+                clearInterval(timer1);
+                timer1=null;
+            }, time1);
+        }
+        function timer2Fun() {
+            $("#item2_1_1").css({"background":"rgb(121,121,121)"});
+            timer2 = setInterval(function () {
+                data_index=data_index+1;
+                timer1Fun();
+                clearInterval(timer2);
+                timer2=null;
+            }, time2);
+        }
+        function topicFun(data) {
+            for (var i=1;i<=data;i++){
+                var div="<div id='item2_1_"+i+"' class='item2_1_1 hide' style='background: rgb("+i+","+i+","+i+")'></div>";
+                $("#item2_1").append(div)
+            }
+        }
+
+        function clearIntervalFun(){
+            clearInterval(timer2);
+            clearInterval(timer1);
+            timer2=null;
+
+            timer1=null;
+        }
+
+        $(document).keydown(function (event) {
+            var e = event || window.event;
+            var k = e.keyCode || e.which;
+            if(k === 32){
+                if(PKey){
+                    PKey=false;
+                    clearIntervalFun()
+                }
+                if(spacer){
+                    spacer=false;
+                    PKey=true;
+                    timer1Fun();
+                }
+
+            }
+        });
+    })
+</script>
+</html>
