@@ -7,37 +7,55 @@
 </head>
 <body>
 <div id="box" class="box">
-    <div id="item2" class="item">
-        <div id="item2_1" class="item2_1 div_flex">
-            <div id="item2_1_1" class="item2_1_1">
-                <img src="img/A_1_1.png" alt="">
+    <div id="item1" class="item item1">
+        <div class="item1_1 div_flex">
+            准备好后 按 空格键 开始正式测试。请比较屏幕左右哪边的圆点数量多；如果右侧圆点数量多，用右手食指按P键。左侧圆点数量多，用左手食指按Q键。
+        </div>
+    </div>
+    <div id="item2" class="item hide">
+        <div id="item2_1" class="item2_1">
+            <div id="imgBox" class="imgBox div_flex">
+                <div id="item2_1_1" class="item2_1_1">
+                    <img id="img" src="" alt="">
+                </div>
+            </div>
+            <div id="ans">
+                <div class="ans div_flex">
+                    <input id="input" type="text" value="" oninput="value=value.replace(/[^\d]/g,'')">
+                </div>
+                <div class="ans div_flex">
+                    <button id="btn" class="btn">确认</button>
+                </div>
             </div>
         </div>
+    </div>
+    <div id="item3" class="item item1 hide">
+        <div class="item1_1 div_flex">谢谢</div>
     </div>
 </div>
 </body>
 <script src="/lattice/js/jquery.3.4.1.js"></script>
 <script>
     $(function () {
-        var data=[
-            {"ID":"1","ANS":"1","TOPIC":"img/A_1_1.png"},
-            {"ID":"2","ANS":"1","TOPIC":"img/A_1_2.png"},
-            {"ID":"3","ANS":"1","TOPIC":"img/A_1_3.png"},
-            {"ID":"4","ANS":"2","TOPIC":"img/A_2_1.png"},
-            {"ID":"5","ANS":"2","TOPIC":"img/A_2_2.png"},
-            {"ID":"6","ANS":"2","TOPIC":"img/A_2_3.png"},
-            {"ID":"7","ANS":"3","TOPIC":"img/A_3_1.png"},
-            {"ID":"8","ANS":"3","TOPIC":"img/A_3_2.png"},
-            {"ID":"9","ANS":"3","TOPIC":"img/A_3_3.png"},
-            {"ID":"10","ANS":"4","TOPIC":"img/A_4_1.png"},
-            {"ID":"11","ANS":"4","TOPIC":"img/A_4_2.png"},
-            {"ID":"12","ANS":"4","TOPIC":"img/A_4_3.png"},
-            {"ID":"13","ANS":"5","TOPIC":"img/A_5_1.png"},
-            {"ID":"14","ANS":"5","TOPIC":"img/A_5_2.png"},
-            {"ID":"15","ANS":"5","TOPIC":"img/A_5_3.png"},
-            {"ID":"16","ANS":"6","TOPIC":"img/A_6_1.png"},
-            {"ID":"17","ANS":"6","TOPIC":"img/A_6_2.png"},
-            {"ID":"18","ANS":"6","TOPIC":"img/A_6_3.png"},
+        var data = [
+            {"ID": "1", "ANS": "1", "TOPIC": "img/A_1_1.png"},
+            {"ID": "2", "ANS": "1", "TOPIC": "img/A_1_2.png"},
+            {"ID": "3", "ANS": "1", "TOPIC": "img/A_1_3.png"},
+            {"ID": "4", "ANS": "2", "TOPIC": "img/A_2_1.png"},
+            {"ID": "5", "ANS": "2", "TOPIC": "img/A_2_2.png"},
+            {"ID": "6", "ANS": "2", "TOPIC": "img/A_2_3.png"},
+            {"ID": "7", "ANS": "3", "TOPIC": "img/A_3_1.png"},
+            {"ID": "8", "ANS": "3", "TOPIC": "img/A_3_2.png"},
+            {"ID": "9", "ANS": "3", "TOPIC": "img/A_3_3.png"},
+            {"ID": "10", "ANS": "4", "TOPIC": "img/A_4_1.png"},
+            {"ID": "11", "ANS": "4", "TOPIC": "img/A_4_2.png"},
+            {"ID": "12", "ANS": "4", "TOPIC": "img/A_4_3.png"},
+            {"ID": "13", "ANS": "5", "TOPIC": "img/A_5_1.png"},
+            {"ID": "14", "ANS": "5", "TOPIC": "img/A_5_2.png"},
+            {"ID": "15", "ANS": "5", "TOPIC": "img/A_5_3.png"},
+            {"ID": "16", "ANS": "6", "TOPIC": "img/A_6_1.png"},
+            {"ID": "17", "ANS": "6", "TOPIC": "img/A_6_2.png"},
+            {"ID": "18", "ANS": "6", "TOPIC": "img/A_6_3.png"}/*,
             {"ID":"19","ANS":"1","TOPIC":"img/B_1_1.png"},
             {"ID":"20","ANS":"1","TOPIC":"img/B_1_2.png"},
             {"ID":"21","ANS":"1","TOPIC":"img/B_1_3.png"},
@@ -55,57 +73,115 @@
             {"ID":"33","ANS":"5","TOPIC":"img/B_5_3.png"},
             {"ID":"34","ANS":"6","TOPIC":"img/B_6_1.png"},
             {"ID":"35","ANS":"6","TOPIC":"img/B_6_2.png"},
-            {"ID":"36","ANS":"6","TOPIC":"img/B_6_3.png"}
+            {"ID":"36","ANS":"6","TOPIC":"img/B_6_3.png"}*/
         ];
-        var time1=100,time2=300;
-        var timer1=null,timer2=null;
-        var spacer=true,PKey=false;
-        var data_index=121;
-        // topicFun(data);
+        var time1 = 100, time2 = 300;
+        var timer1 = null, timer2 = null;
+        var spacer = true, PKey = false;
+        var color_index = 121, data_index = 0;
+        var time, beginTime, endTime;
+        var stimidset = [], timeset = [], correctanswerset = [], buttonset = [], type4set = [], commentset = [];
+        var data_length = data.length;
+        pushArr(data);
+        $("#btn").on("click", function () {
+            var ans = $("#input").val();
+            var ans1 = data[data_index].ANS;
+            time = (endTime - beginTime).toFixed(0);
+            stimidset.push(data[data_index].ID);
+            correctanswerset.push(ans1);
+            buttonset.push(ans);
+            type4set.push("1");
+            if (ans1 == ans) {
+                commentset.push("1");
+            } else {
+                commentset.push("0");
+            }
+            timeset.push(time);
+            color_index = 121;
+            data_index++;
+            if (data_index >= data_length) {
+                $("#item2").addClass("hide");
+                $("#item3").removeClass("hide");
+                return;
+            }
+            topicFun(data_index);
+            timer1Fun();
+            topicAnsFun(true);
+            beginTime = new Date().getTime();
+            PKey = true;
+        });
+
         function timer1Fun() {
-            $("#item2_1_1").css({"background":"rgb("+data_index+","+data_index+","+data_index+")"});
+            $("#item2_1_1").css({"background": "rgb(" + color_index + "," + color_index + "," + color_index + ")"});
             timer1 = setInterval(function () {
                 timer2Fun();
                 clearInterval(timer1);
-                timer1=null;
+                timer1 = null;
             }, time1);
         }
+
         function timer2Fun() {
-            $("#item2_1_1").css({"background":"rgb(121,121,121)"});
+            $("#item2_1_1").css({"background": "rgb(121,121,121)"});
             timer2 = setInterval(function () {
-                data_index=data_index+1;
+                color_index = color_index + 1;
                 timer1Fun();
                 clearInterval(timer2);
-                timer2=null;
+                timer2 = null;
             }, time2);
         }
-        function topicFun(data) {
-            for (var i=1;i<=data;i++){
-                var div="<div id='item2_1_"+i+"' class='item2_1_1 hide' style='background: rgb("+i+","+i+","+i+")'></div>";
-                $("#item2_1").append(div)
+
+        function topicAnsFun(y) {
+            if (y) {
+                $("#imgBox").removeClass("hide");
+                $("#ans").addClass("hide");
+            } else {
+                $("#imgBox").addClass("hide");
+                $("#ans").removeClass("hide");
             }
         }
 
-        function clearIntervalFun(){
+        function topicFun(data_index) {
+            $("#img").attr("src", data[data_index].TOPIC)
+        }
+
+        function clearIntervalFun() {
             clearInterval(timer2);
             clearInterval(timer1);
-            timer2=null;
+            timer2 = null;
+            timer1 = null;
+        }
 
-            timer1=null;
+        function pushArr(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
         }
 
         $(document).keydown(function (event) {
             var e = event || window.event;
             var k = e.keyCode || e.which;
-            if(k === 32){
-                if(PKey){
-                    PKey=false;
-                    clearIntervalFun()
+            if (k === 32) {
+                if (PKey) {
+                    PKey = false;
+                    clearIntervalFun();
+                    topicAnsFun(false);
+                    endTime = new Date().getTime();
+                    $("#input").val("");
+                    $("#input").focus();
                 }
-                if(spacer){
-                    spacer=false;
-                    PKey=true;
+                if (spacer) {
+                    spacer = false;
+                    PKey = true;
+                    $("#item1").addClass("hide");
+                    $("#item2").removeClass("hide");
+                    topicFun(data_index);
                     timer1Fun();
+                    $("#input").focus();
+                    topicAnsFun(true);
+                    beginTime = new Date().getTime();
                 }
 
             }
