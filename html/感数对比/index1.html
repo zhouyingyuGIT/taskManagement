@@ -25,6 +25,9 @@
     <div id="item3" class="item item1 hide">
         <div class="item1_1 div_flex">谢谢</div>
     </div>
+    <div id="item4" class="item item1 hide div_flex" style="font-size: 100px;font-weight: 900;color: #fff;">
+        +
+    </div>
 </div>
 </body>
 <script src="../../js/jquery.3.4.1.js"></script>
@@ -140,8 +143,8 @@
             {"ID":"107","ANS":"Q","URL1":"img/A_6_3.png","URL2":"img/A_4_3.png"},
             {"ID":"108","ANS":"Q","URL1":"img/A_6_3.png","URL2":"img/A_5_3.png"}
         ];
-        var time1=100,time2=1500;
-        var timer1=null,timer2=null;
+        var time1=200,time2=3000,time3=1000;
+        var timer1=null,timer2=null,timer3=null;
         var spacer=true,QPKey=false;
         var data_index=0;
         var stimidset=[],timeset=[],correctanswerset=[],buttonset=[],type4set=[],commentset=[];
@@ -159,19 +162,22 @@
         function timer2Fun() {
             timer2 = setInterval(function () {
                 QPkeyFun("key");
-                /*QPKey=false;
-                data_index++;
-                if(data_index>=108){
-                    $("#item2").addClass("hide");
-                    $("#item3").removeClass("hide");
-                    return;
-                }
-                topicFun(data_index);
-                timer1Fun();*/
                 clearInterval(timer2);
                 timer2=null;
             }, time2);
         }
+        function timer3Fun() {
+            $("#item2").addClass("hide");
+            $("#item4").removeClass("hide");
+            timer3 = setInterval(function () {
+                $("#item4").addClass("hide");
+                $("#item2").removeClass("hide");
+                timer1Fun();
+                clearInterval(timer3);
+                timer3=null;
+            }, time3);
+        }
+
         function topicFun(data_index) {
             $("#img1").attr("src",data[data_index].URL1);
             $("#img2").attr("src",data[data_index].URL2);
@@ -200,7 +206,8 @@
                 return;
             }
             topicFun(data_index);
-            timer1Fun();
+
+            timer3Fun()
         }
 
         $(document).keydown(function (event) {
@@ -211,7 +218,7 @@
                     spacer=false;
                     $("#item1").addClass("hide");
                     topicFun(data_index);
-                    timer1Fun();
+                    timer3Fun()
                 }
             }
             if(k===81){//Q

@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0709260c-9ce5-45a7-8fc5-3aaac35d0790" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/感数对比/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/感数对比/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/感数对比/index1.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/感数对比/index1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/感数逐渐发生范式/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/感数逐渐发生范式/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/感数逐渐发生范式/index1.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/感数逐渐发生范式/index1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/数学认知训练/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/数学认知训练/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/时间估计/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间估计/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/时间估计/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间估计/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/时间比较/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/html/时间比较/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lattice" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Psychological" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -50,15 +52,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\zhouyingyu\project\taskManagement\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\zhouyingyu\project\taskManagement\html\wskx" />
       <recent name="D:\zhouyingyu\project\taskManagement\js" />
       <recent name="D:\zhouyingyu\project\taskManagement\html\连线测试TMT2" />
       <recent name="D:\zhouyingyu\project\taskManagement\html\连线测试TMT" />
       <recent name="D:\zhouyingyu\project\taskManagement\html" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\zhouyingyu\project\taskManagement\css" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -106,7 +108,9 @@
       <workItem from="1577239697530" duration="179000" />
       <workItem from="1577242557048" duration="11187000" />
       <workItem from="1577344186142" duration="5744000" />
-      <workItem from="1577515642718" duration="6183000" />
+      <workItem from="1577515642718" duration="12987000" />
+      <workItem from="1577709579401" duration="3325000" />
+      <workItem from="1577756976101" duration="6542000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1575620496404</created>
@@ -178,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577366699048</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="提交连线任务">
+      <created>1577522776235</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1577522776235</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,29 +203,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="提交连线任务" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1577522763834">
+    <state x="237" y="0" key="CommitChangelistDialog2" timestamp="1577522775531">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577522763834" />
+    <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577522775531" />
     <state x="237" y="0" key="CommitChangelistDialog2/0.0.1280.720@0.0.1280.720" timestamp="1575896882874" />
-    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1577246034808">
+    <state x="421" y="112" key="FileChooserDialogImpl" timestamp="1577757918543">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577246034808" />
+    <state x="421" y="112" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1577757918543" />
     <state x="421" y="119" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1575872519351" />
     <state x="144" y="0" key="SettingsEditor" timestamp="1577158306200">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="144" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577158306200" />
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1577366703656">
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1577522778630">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577366703656" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577522778630" />
     <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1575896886297" />
-    <state x="439" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577522766366">
+    <state x="439" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577522789958">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="439" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1577522766366" />
+    <state x="439" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1577522789958" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1577071473008">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

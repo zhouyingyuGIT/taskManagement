@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>时间复制</title>
+    <title>时间估值</title>
     <link rel="stylesheet" href="index.css">
     <SCRIPT src="/lattice/js/Statistics/Statistics.js" type=text/javascript></SCRIPT>
     <script src="/lattice/js/oneui/opes_post_result_util.js"></script>
@@ -78,21 +78,26 @@
         var data_index=-1,taskid=0,taskid1="5998",taskid2="5997";
         var spacer1=true,reward=true,spacer3=false;
         var time,beginTime,endTime;
-        var correctanswerset=[],buttonset=[],commentset=[],stimidset=[];
+        var correctanswerset=[],buttonset=[],commentset=[],stimidset=[],numset=[],type4set=[];
         var data=[];
         taskid=getUrlParam("taskid");
         taskidFun(taskid);
         $("#btn").on("click",function () {
             var ans="";
+            var ans1=data[data_index]/1000;
+            var APH;
             ans=$("#ans").val();
             buttonset.push(ans);
-            correctanswerset.push(data[data_index]);
-            commentset.push(data[data_index]);
+            type4set.push("0");
+            correctanswerset.push(ans1);
+            commentset.push(ans1);
             stimidset.push(data_index);
+            APH=Math.abs(parseInt(ans)-parseInt(ans1));
+            numset.push(APH);
             $("#item5").addClass("hide");
             if(reward){
                 $("#item6").removeClass("ls hs");
-                var ans1=data[data_index]/1000;
+
                 if(ans == ans1){
                     $("#item6").addClass("ls");
                     $("#item6").text("答对了，是"+ans1+"秒")
@@ -224,16 +229,16 @@
             opes_result_data.projectid =<%= projectid %>;
             opes_result_data.duration = 0;
             opes_result_data.timeaverage = Math.round(0);
-            opes_result_data.type4set = "0";
+            opes_result_data.type4set = type4set.join(";");
             opes_result_data.stimidset = stimidset.join(";");
             opes_result_data.correctanswerset = correctanswerset.join(";");
             opes_result_data.time = "0";
             opes_result_data.level = "0";
-            opes_result_data.timeset = "0";
-            opes_result_data.radioset = "0";
+            opes_result_data.timeset = "";
+            opes_result_data.radioset = "";
             opes_result_data.buttonset = buttonset.join(";");
             opes_result_data.commentset = commentset.join(";");
-            opes_result_data.numset = "0";
+            opes_result_data.numset = numset.join(";");
             opes_post_result_util_js_opes_post_result(opes_result_data);
             return;
         }

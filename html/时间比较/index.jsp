@@ -82,7 +82,7 @@
         var timer1=null,timer2=null,timer3=null,timer4=null,timer5=null;
         var time1=500,time2=3000,time3=2000,time4=0,time5=2000;
         var data_index=-1,data_length=0,taskid=0,taskid1="7018",taskid2="7017";
-        var correctanswerset=[],buttonset=[],commentset=[],stimidset=[];
+        var correctanswerset=[],buttonset=[],commentset=[],stimidset=[],type4set=[],numset=[];
         taskid=getUrlParam("taskid");
         taskidFun(taskid);
         function timer1Fun() {
@@ -183,6 +183,7 @@
             }
             buttonset.push(key);
             stimidset.push(data_index);
+            type4set.push("0");
             if(reward){
                 $("#item7").removeClass("ls hs");
                 if(ans1 === key){
@@ -192,6 +193,11 @@
                     $("#item7").addClass("hs");
                     $("#item7").text("答错了");
                 }
+            }
+            if(ans1 === key){
+                numset.push("1")
+            }else {
+                numset.push("0")
             }
             timer5Fun();
         }
@@ -232,16 +238,16 @@
             opes_result_data.projectid =<%= projectid %>;
             opes_result_data.duration = 0;
             opes_result_data.timeaverage = Math.round(0);
-            opes_result_data.type4set = "0";
+            opes_result_data.type4set = type4set.join(";");
             opes_result_data.stimidset = stimidset.join(";");
             opes_result_data.correctanswerset = correctanswerset.join(";");
             opes_result_data.time = "0";
             opes_result_data.level = "0";
-            opes_result_data.timeset = "0";
-            opes_result_data.radioset = "0";
+            opes_result_data.timeset = "";
+            opes_result_data.radioset = "";
             opes_result_data.buttonset = buttonset.join(";");
             opes_result_data.commentset = commentset.join(";");
-            opes_result_data.numset = "0";
+            opes_result_data.numset = numset.join(";");
             opes_post_result_util_js_opes_post_result(opes_result_data);
             return;
         }

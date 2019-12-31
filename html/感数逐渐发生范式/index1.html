@@ -32,6 +32,9 @@
     <div id="item3" class="item item1 hide">
         <div class="item1_1 div_flex">谢谢</div>
     </div>
+    <div id="item4" class="item item1 hide div_flex" style="background: rgb(121,121,121);font-size: 100px;font-weight: 900;color: #fff;">
++
+    </div>
 </div>
 </body>
 <script src="../../js/jquery.3.4.1.js"></script>
@@ -75,8 +78,8 @@
             {"ID":"35","ANS":"6","TOPIC":"img/B_6_2.png"},
             {"ID":"36","ANS":"6","TOPIC":"img/B_6_3.png"}*/
         ];
-        var time1=100,time2=300;
-        var timer1=null,timer2=null;
+        var time1=100,time2=20,time3=1000;
+        var timer1=null,timer2=null,timer3=null;
         var spacer=true,PKey=false;
         var color_index=121,data_index=0;
         var time,beginTime,endTime;
@@ -106,10 +109,7 @@
                 return;
             }
             topicFun(data_index);
-            timer1Fun();
-            topicAnsFun(true);
-            beginTime=new Date().getTime();
-            PKey=true;
+            timer3Fun();
         });
         function timer1Fun() {
             $("#item2_1_1").css({"background":"rgb("+color_index+","+color_index+","+color_index+")"});
@@ -122,11 +122,25 @@
         function timer2Fun() {
             $("#item2_1_1").css({"background":"rgb(121,121,121)"});
             timer2 = setInterval(function () {
-                color_index=color_index+1;
+                color_index=color_index+0.2;
                 timer1Fun();
                 clearInterval(timer2);
                 timer2=null;
             }, time2);
+        }
+        function timer3Fun() {
+            $("#item2").addClass("hide");
+            $("#item4").removeClass("hide");
+            timer3 = setInterval(function () {
+                $("#item4").addClass("hide");
+                $("#item2").removeClass("hide");
+                timer1Fun();
+                topicAnsFun(true);
+                beginTime=new Date().getTime();
+                PKey=true;
+                clearInterval(timer3);
+                timer3=null;
+            }, time3);
         }
         function topicAnsFun(y) {
             if(y){
@@ -173,10 +187,7 @@
                     $("#item1").addClass("hide");
                     $("#item2").removeClass("hide");
                     topicFun(data_index);
-                    timer1Fun();
-                    $("#input").focus();
-                    topicAnsFun(true);
-                    beginTime=new Date().getTime();
+                    timer3Fun();
                 }
 
             }
