@@ -1,0 +1,66 @@
+/* 默认样式初始化 */
+* {margin: 0;padding: 0;}
+li {list-style: none;}
+h6 {font-weight: normal;}
+/* 公共样式 */
+.hide {display: none;}
+.visbili-hide {visibility: hidden;}
+/*div {margin: 0px 0;}*/
+.pages {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 2px solid #ab705c;
+    text-align: center;
+    color: #ab705c;
+    /* background-color: #cde8cf; */
+}
+.border1, .border2 {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2px solid #ab705c;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.box {
+    flex: 1;
+}
+.pages .main-test-desc h6, .audiovisual-integration-practice h6 {
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 80px;
+}
+
+
+.pages .main-test-desc dd {
+    margin: 10px;
+}
+
+.audiovisual-integration-practice p {
+    margin-bottom: 30px;
+}
+/* 热身测试第一部分 */
+.hot-test-part1 h6 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+.hot-test-part1 p, .start-hotTest-view p, .target-test p, .show-area-P {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid orange;
+    box-shadow: 0 0 0 2px yellow,0 0 0 4px green,0 0 0 6px burlywood;
+    border-radius: 10px;
+}
+.hot-test-part1 p span, .start-hotTest-view p span,.target-test p span,.show-area-P span {
+    line-height: 100px;
+    font-size: 90px;
+    font-weight: bold;
+    color: greenyellow;
+}

@@ -1,0 +1,495 @@
+﻿
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title><fmt:message key="jsp.menu.head"/>测验在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<!--<SCRIPT src="../../../js/wz_jsgraphics/wz_jsgraphics.js" type=text/javascript></SCRIPT>-->
+<SCRIPT src="../../../js/utils.js" type=text/javascript></SCRIPT>
+<link rel="stylesheet" href="/lattice/css/layout.css" type="text/css"/>
+<link rel="stylesheet" href="/lattice/css/main.css" type="text/css"/>
+<style type="text/css"> 
+
+body {margin: 0px; background-color: #000000;cursor: url(../../images/empty.cur), auto;           }
+ 
+span { font-family: Arial, Helvetica, sans-serif; font-size: 30pt; color: #ffffff; }
+span.loading { font-family: Arial, Helvetica, sans-serif; font-size: 20pt; color: #ffffff; }
+span.fixation { font-family: Arial, Helvetica, sans-serif; font-size: 80pt; color: #ffffff; }
+span.message { font-family: Arial, Helvetica, sans-serif; font-size: 25pt; color: #ffffff; }
+span.addsubmildiv{ font-family: Arial, Helvetica, sans-serif; font-size: 60pt; color: #ffffff; }
+span.asmdresult{ font-family: Arial, Helvetica, sans-serif; font-size: 40pt; color: #ffffff; }
+span.myCanvasSpan{font-family: Arial, Helvetica, sans-serif; font-size: 25pt; color: #ffffff; }
+.stroopnum_tip_div{	margin:0 auto;	background-color: #000000;	clear: both; 	align: center;	height: 30%;	width: 60%;	position: absolute;	left:20%;	top:35%;	line-height:50px; text-align: center;	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 40px;	color: #FFFFFF;}
+.stroopnum_relax_tips_div{		background-color: #000000;	clear: both; 	align: center;	height: 100px;	width: 40%;	position: absolute;	left:30%;	right:50%;	top:300px;	text-align: center;	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 27px;	color: #FFFFFF;}
+
+
+</style>
+</head>
+<body oncontextmenu="return false;" >
+<form id="result" name="result" method="post" action="/lattice/sacHandler?type=test">
+<input type=hidden value="26" name="taskid" id="taskid"/>
+<input type=hidden value="37;108" name="sumitcoids" id="sumitcoids"/>
+<input type=hidden value="alltest.jsp" name="targetpagename" id="targetpagename"/>
+
+</form>
+
+    <table height="100%" border=0px width="100%" border="0">
+            <tr>
+                <td align="center" valign="middle">
+                    <table cellspacing="0" border=0px cellpadding="0"  width="80%" align="center" border="0">
+                        <tr>
+							<td align=center height=200px  >
+								<span id="loading" class="loading">
+									<img name="imageObj" id="imageObj" src="../../../images/black_toosmall.jpg"/>
+									<br/>正在装入程序...
+								</span>
+								<span id="upper" class="addsubmildiv"></span>
+							</td>
+						</tr>
+						<tr>
+							<td align=center height=80px>
+								<span id="nether" class="asmdresult"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+							</td>
+						</tr>
+                    </table>
+                </td>
+            </tr>
+    </table>
+
+<!-- 
+<div class="left_test_tips_div">
+<br/>
+左边包含结果，就用左手食指按Q/q键
+</div>
+
+<div class="right_test_tips_div">
+<br/>
+右边包含结果，就用右手食指按P/p键
+</div>
+ -->
+
+
+
+ 
+<div id="stroopnum_tip" style="display:none;" class="stroopnum_tip_div">
+</div>
+<div id="myCanvas" style="display:none;" class="stroopnum_relax_tips_div">
+<br/>
+<span id="myCanvasSpan" class="myCanvasSpan">请休息</span>
+</div>    
+  
+<div id="feed_back_div" style="display:none;" class="stroopnum_relax_tips_div">
+<span id="message" class="message"><img name="feed_back_img" id="feed_back_img" src="../../../images/black_toosmall.jpg"/></span>
+<!--<span><img name="messageimageObj" id="messageimageObj" src="../../../images/black_toosmall.jpg"/></span>-->
+</div> 
+  
+</body>
+<script type="text/javascript">
+
+var black_image="../../../images/black_toosmall.jpg";
+var pleased_image="../../../images/pleased.JPG";
+var depressed_image="../../../images/depressed.JPG";
+var loading_image="../../../images/ajax-loader(2).gif";
+
+/* FORMAL DATA
+var add_l=new Array("25","84","79","64","37","97","84","57","74","29","95","62","73","98","58","79","68","79","84","37","64","84","58","49","97","83","97","65","83","83","49","78","48","76","94","37","82","59","73","79","39","67","89","68","63","75","95","94","69","46","54","73","29","63","47","45","17","85","59","87","94","96","98","85","94","75","83","27","78","98","85","85","74","67","89","87","28","27","75","86","28","85","75","36","89","82","85","45","46","68","95","63","65","67","78","84","48","68","46","69");
+var add_r=new Array("96","27","68","49","85","79","98","46","69","76","39","59","69","26","96","84","96","87","97","94","47","68","67","58","68","59","89","48","38","68","62","57","86","68","68","76","49","73","98","65","93","79","53","79","78","58","79","38","42","95","98","38","93","59","79","76","98","76","98","25","57","87","64","76","29","46","79","98","56","79","97","69","28","75","26","75","96","98","38","79","83","48","48","97","36","29","17","89","69","47","67","89","59","74","89","28","87","84","65","95");
+var sub_l=new Array("93","92","83","84","73","62","84","93","91","96","85","83","91","73","45","83","41","65","92","53","43","92","92","52","81","85","51","71","56","53","73","54","91","65","94","54","61","71","91","63","94","81","84","74","51","64","83","76","85","94","74","85","58","96","82","51","87","85","53","71","53","85","91","74","95","95","63","74","63","93","84","85","75","93","74","35","73","82","84","62","63","67","95","92","57","87","63","87","85","94","96","86","84","94","65","75","71","73","87","51");
+var sub_r=new Array("24","14","56","17","19","24","59","19","42","57","39","15","28","27","16","24","25","26","56","26","18","28","57","13","54","57","24","13","17","16","24","18","35","28","29","18","19","47","68","19","36","37","38","45","18","28","36","17","36","59","28","16","19","47","57","32","28","16","18","23","16","18","14","38","38","29","28","46","28","47","27","28","17","58","38","17","18","17","58","29","17","38","38","24","18","28","24","38","16","29","59","28","39","16","17","17","32","25","18","23");
+var mul_l=new Array("39","58","96","18","55","94","14","66","62","54","58","52","74","85","86","77","56","72","57","57","55","79","23","23","68","94","93","76","74","95","23","37","63","49","59","55","17","46","58","96","89","89","58","35","85","57","83","68","19","87","98","69","15","84","99","59","86","88","36","28","66","88","87","57","72","24","55","65","84","27","48","74","68","92","99","52","28","62","79","89","97","44","88","57","35","36","66","48","98","86","59","87","93","67","47","53","69","89","97","84");
+var mul_r=new Array("9","7","4","7","6","3","8","3","9","9","7","9","4","3","6","9","9","9","6","4","6","6","9","7","3","7","7","8","6","3","9","9","8","6","4","3","7","9","7","3","3","7","4","7","7","6","7","4","7","9","3","6","9","6","2","2","6","8","3","9","6","4","7","7","6","9","6","4","4","4","8","7","9","7","3","6","6","9","7","8","6","7","8","7","8","4","3","9","7","2","9","9","7","2","8","4","9","9","8","8");
+var div_l=new Array("434","134","424","175","424","175","455","136","162","245","212","441","225","608","192","208","462","675","264","198","125","198","616","144","376","225","158","292","128","612","264","342","624","588","132","264","144","324","146","114","462","282","186","406","324","512","343","294","712","108","164","178","249","123","365","406","145","115","178","456","435","474","124","497","371","644","268","236","287","396","224","639","264","124","336","188","408","448","208","237","175","248","207","584","161","472","315","207","444","385","261","134","296","224","147","602","264","164","225","372");
+var div_r=new Array("7","2","8","7","8","7","7","4","6","7","4","7","3","8","6","8","7","9","4","9","5","9","7","6","4","5","2","4","4","9","4","6","8","6","4","3","2","6","2","2","7","6","6","7","9","8","7","7","8","6","4","2","3","3","5","7","5","5","2","6","5","6","2","7","7","7","4","4","7","9","7","9","6","4","4","4","6","8","4","3","5","8","3","8","7","8","5","3","6","7","3","2","4","4","3","7","6","4","5","6");
+var add_correct_result=new Array("P","P","Q","P","P","Q","P","Q","Q","P","P","Q","P","P","P","Q","Q","Q","P","P","P","P","P","Q","P","Q","P","Q","Q","P","Q","Q","Q","Q","Q","P","Q","Q","Q","P","P","P","Q","Q","P","P","Q","Q","Q","P","P","Q","Q","P","P","P","P","Q","Q","P","P","P","Q","Q","Q","Q","P","P","P","P","Q","Q","P","Q","P","P","P","P","Q","P","Q","Q","P","P","Q","P","Q","Q","Q","Q","Q","P","P","P","P","Q","P","Q","P","Q");
+var sub_correct_result=new Array("Q","Q","Q","Q","Q","Q","P","Q","P","P","Q","Q","P","P","Q","P","Q","P","P","P","Q","Q","P","P","P","Q","P","Q","P","Q","P","Q","P","P","P","P","Q","P","P","P","P","Q","Q","P","P","P","Q","Q","P","Q","Q","Q","Q","Q","P","P","Q","P","P","P","P","P","Q","Q","Q","Q","Q","Q","P","P","Q","Q","Q","P","Q","P","P","P","Q","Q","Q","Q","Q","Q","Q","P","P","P","Q","P","Q","Q","P","P","Q","P","Q","Q","P","P");
+var mul_correct_result=new Array("Q","Q","P","P","P","Q","Q","P","P","P","P","Q","Q","P","Q","P","Q","P","Q","P","P","P","Q","P","Q","Q","P","Q","Q","Q","Q","P","Q","P","Q","Q","P","Q","P","Q","P","P","Q","P","Q","P","P","Q","P","P","Q","Q","Q","Q","P","Q","Q","Q","P","Q","P","P","Q","Q","Q","Q","P","P","Q","P","P","Q","Q","Q","P","P","Q","Q","P","P","P","P","P","Q","P","P","P","P","P","Q","P","Q","P","Q","P","Q","P","Q","Q","Q");
+var div_correct_result=new Array("Q","Q","P","P","Q","P","Q","Q","P","P","P","Q","P","P","P","P","Q","Q","Q","Q","P","P","Q","Q","P","P","Q","P","P","P","P","Q","Q","Q","P","Q","Q","P","P","Q","Q","Q","P","P","Q","Q","P","P","P","P","P","Q","P","Q","P","Q","P","Q","Q","P","Q","Q","Q","P","P","Q","P","P","Q","Q","Q","P","Q","P","Q","Q","Q","P","Q","P","P","P","P","Q","Q","Q","P","Q","Q","Q","P","P","Q","P","P","P","Q","Q","P","P");
+var add_result =new Array("122 221&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;121 131","101 211&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112 111","137 147&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;148 247","213 123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;113 114","121 222&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112 122","176 276&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;186 177","183 282&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192 182","103 102&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;113 203","153 143&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;144 243","106 205&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;115 105","135 234&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;124 134","111 121&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120 221","143 242&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;132 142","134 224&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;125 124","144 254&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;155 154","153 163&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;162 263","174 164&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;165 264","166 165&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;156 266","182 281&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;191 181","132 231&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;131 121","121 211&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110 111","151 252&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;152 142","225 135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;125 124","207 107&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;108 117","164 265&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;165 155","242 142&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;143 132","185 286&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;186 176","213 113&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112 123","121 221&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;131 122","152 251&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;161 151","111 211&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;101 110","235 135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;134 145","134 135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;124 234","154 144&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;143 244","162 262&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;152 163","213 103&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;113 112","131 231&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;121 130","132 131&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;122 232","171 170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;181 271","145 244&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;134 144","131 232&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;142 132","136 246&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;145 146","142 242&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;132 141","137 147&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;148 247","131 241&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;142 141","143 233&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;134 133","174 175&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;164 274","132 232&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;122 133","211 111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112 101","140 241&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;141 151","162 252&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;151 152","111 211&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;101 112","122 222&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112 121","123 222&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;122 132","136 226&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;127 126","122 221&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;121 131","215 105&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;115 114","261 161&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160 171","157 156&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;167 257","212 102&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112 113","161 251&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;152 151","193 283&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;184 183","162 262&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;172 161","171 161&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160 261","123 122&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;133 223","221 121&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120 111","161 262&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;172 162","225 135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;125 126","135 234&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;144 134","277 167&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;177 178","182 282&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192 183","254 154&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;153 144","103 202&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;102 112","242 142&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;143 152","105 215&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;114 115","262 152&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;162 161","123 224&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;134 124","115 225&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;124 125","113 213&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;123 114","155 265&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;166 165","101 111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;110 211","123 133&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;132 233","124 223&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;133 123","123 233&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;134 133","125 225&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;115 124","211 101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;111 110","102 202&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;112 103","134 234&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;124 135","115 116&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;105 215","115 114&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;125 215","162 161&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;152 262","153 252&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;162 152","125 224&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;124 134","241 131&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;141 142","166 267&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;177 167","112 113&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;122 212","136 235&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;135 145","162 152&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;153 252","211 121&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;111 110","164 163&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;154 264"); //new Array('P','P','Q','Q','P');
+var sub_result =new Array("69 49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;79 70","78 98&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88 79","27 28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17 47","67 66&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;77 87","74 54&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;55 64","38 39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48 58","24 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 25","84 74&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;75 54","39 69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48 49","40 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49 39","46 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 26","48 68&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67 58","83 73&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;63 62","45 26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;56 46","29 28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19 49","58 39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49 59","26 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17 36","40 19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 49","56 46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 35","17 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 27","25 24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35 45","44 64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65 54","36 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35 45","29 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38 39","47 37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27 26","28 48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38 29","47 17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27 26","58 57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;68 38","29 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38 39","57 37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 27","48 29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49 59","36 56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 37","55 76&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66 56","38 17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37 27","75 85&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66 65","26 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37 36","22 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;43 52","25 44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24 34","24 43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23 33","34 24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45 44","38 68&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58 57","34 44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;43 24","46 66&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 45","49 39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29 28","32 53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23 33","35 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 26","27 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48 57","49 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60 39","50 69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;59 49","35 34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45 55","56 46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;47 66","59 69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70 89","59 39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38 49","49 69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;59 48","45 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 26","29 39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 19","79 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60 49","70 89&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;79 69","45 55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34 35","28 38&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48 47","27 17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 37","66 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67 77","57 77&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78 67","36 56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 37","77 57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;56 67","66 67&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;76 86","35 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 34","28 27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38 48","25 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34 35","45 26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;46 36","67 57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58 37","47 57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58 37","78 58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;59 48","45 55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 35","56 36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35 46","38 28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18 19","54 75&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;55 45","55 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66 65","26 46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16 27","13 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32 43","36 46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;47 26","49 29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;28 39","67 57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;56 37","48 68&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67 78","39 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29 38","60 39&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;59 69","40 19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 49","50 29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49 59","69 70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;79 89","55 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;64 65","37 36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;47 57","68 58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;57 38","44 25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45 55","88 98&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;77 78","68 48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;47 38","38 68&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58 57","39 40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49 59","48 49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58 68","68 49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;69 59","27 48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18 28"); //new Array('P','P','Q','Q','P');
+var mul_result =new Array("351 352&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;361 451","406 405&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;396 306","374 284&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;383 384","226 116&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;126 127","230 320&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;330 329","382 282&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;283 292","112 113&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;102 212","208 298&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;197 198","568 458&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;559 558","487 586&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;486 476","405 306&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;406 396","368 468&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;467 458","396 296&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;295 306","355 245&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;255 254","516 517&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;506 616","703 593&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;694 693","404 504&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;505 514","548 658&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;648 647","442 342&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;343 332","227 128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;218 228","329 230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340 330","475 574&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;474 484","307 207&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;206 197","261 151&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;161 160","204 304&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;214 205","658 758&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;668 659","661 751&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;650 651","618 608&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;609 508","434 444&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;443 544","295 285&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;284 185","207 107&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;217 208","433 323&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;333 332","404 504&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;503 494","284 194&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;295 294","236 237&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;246 136","265 165&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;166 175","219 109&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;119 120","414 314&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;424 415","396 506&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;405 406","288 188&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;298 287","268 167&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;257 267","723 613&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;623 624","232 332&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;222 231","244 145&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;245 235","595 596&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;605 495","242 352&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;342 341","681 591&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;581 582","372 272&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;271 282","233 123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;133 134","782 883&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;783 793","394 294&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;293 304","414 415&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;424 514","135 235&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;145 134","404 504&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;505 494","208 298&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;197 198","218 118&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 128","516 517&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;506 416","704 703&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;714 804","208 118&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;108 109","262 252&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;251 152","406 296&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;397 396","362 452&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;351 352","709 609&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;610 619","399 299&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;389 400","442 432&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;431 532","316 216&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;215 206","329 230&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;340 330","250 160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;261 260","336 436&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;326 335","107 208&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;108 118","385 484&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;384 374","518 418&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;508 517","612 712&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;622 613","644 645&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;654 544","296 397&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;287 297","311 212&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;322 312","168 268&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;158 169","558 458&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;568 557","653 543&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;553 552","812 722&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;712 713","581 682&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;572 582","309 208&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;298 308","714 604&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;703 704","389 399&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 299","281 180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;280 270","145 244&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;144 154","197 298&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;208 198","431 532&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;422 432","586 696&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;686 687","272 172&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;173 182","631 541&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;531 530","783 782&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;773 883","650 551&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;651 661","124 134&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;135 234","476 366&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;376 375","212 312&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;222 213","622 521&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;631 621","801 901&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;791 800","766 776&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;775 876","672 572&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;662 671"); //new Array('P','P','Q','Q','P');
+var div_result =new Array("42 62&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;63 72","77 67&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66 47","54 73&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;63 53","24 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 15","63 53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;54 33","26 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15 25","85 65&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;64 55","24 34&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;33 14","37 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 27","25 55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;36 35","63 73&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;52 53","63 64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 43","76 55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65 75","56 66&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;76 75","12 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32 31","46 36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;26 27","66 46&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;56 65","75 55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85 74","86 66&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;65 56","12 22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23 42","45 35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25 24","21 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12 22","88 87&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78 68","24 25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34 44","84 74&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95 94","55 25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;44 45","69 79&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;78 59","83 93&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;72 73","31 52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;42 32","69 88&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;68 58","86 76&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66 67","57 37&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67 58","78 77&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;88 58","78 98&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;97 88","53 43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;33 34","68 88&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;87 98","82 72&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 52","74 44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;54 55","63 53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;74 73","47 57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58 77","66 65&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;76 46","67 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;46 37","41 51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32 31","78 68&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58 57","36 35&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;46 16","74 64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;63 84","69 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49 48","41 62&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32 42","88 69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;89 99","28 38&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19 18","42 21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;41 31","89 90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;99 69","82 63&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;93 83","51 41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40 21","72 53&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 83","58 78&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;68 57","28 49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29 19","23 43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13 24","89 69&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;79 90","75 56&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;76 86","87 67&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;77 86","99 79&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80 69","62 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;72 61","91 81&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;71 72","54 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;43 53","92 93&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;82 72","66 87&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;57 67","60 79&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;69 59","41 40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51 21","44 43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;34 24","22 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;33 12","81 91&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;72 71","64 44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;43 34","11 41&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31 30","84 64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;94 83","37 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;46 27","48 68&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67 78","57 36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;46 56","52 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;42 53","80 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;69 79","15 45&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35 34","32 51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;21 31","68 89&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;59 69","53 73&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;74 83","43 23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24 33","49 59&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60 39","64 83&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;53 63","69 70&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;59 89","74 73&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;64 94","35 55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;56 45","67 77&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;87 86","57 47&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66 67","94 74&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;75 64","57 76&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66 56","48 29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49 39","66 76&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;86 87","54 44&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45 64","41 40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31 21","44 25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45 35","63 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;72 62"); //new Array('P','P','Q','Q','P');
+*/
+
+//var add_l=new Array("25","84");
+//var add_r=new Array("96","27");
+//var sub_l=new Array("93","92");
+//var sub_r=new Array("24","14");
+
+/*
+var mul_l=new Array("2","3","4","5");
+var mul_r=new Array("1","2","2","3");
+var mul_correct_result=new Array("Q","P","Q","P");
+var mul_result=new Array(
+"1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2",
+"2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1",
+"2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3",
+"3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2");
+*/
+
+
+var mul_l=new Array("9","4","3","7","2","5");//要记忆的数字 
+//var mul_r=new Array("1","2","1","2","1","2");
+var mul_correct_result=new Array("P","Q","Q","P","Q","Q");//正确结果 
+
+//data for test
+var mul_result=new Array(
+"8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9",
+"4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5",
+"3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4",
+"6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7",
+"2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3",
+"5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6");
+
+
+
+
+var correct_result ;//
+var user_result=new Array();
+var rc_key = new Array();
+var rc_time = new Array();
+ 
+var timer_id;
+var index = 0;
+var trial_interval = 300; // interval between trials in ms
+var key_interval = 1000; // interval after key press in ms
+var fixation_interval = 400; // 
+var blank_interval = 1000; //
+var short_blank_interval = 500; // 
+var relax_interval=2000;
+var feedback_interval=2000;// feedback time
+var ifinite_wait_interval=40000000;
+var start_delay = 1000; // in ms
+var undef_key = "undef";
+var undef_time = trial_interval;
+var timestamp;
+
+var black_interval = 800;// interval for showing nothing.
+var figure_show_interval = 200;//interval for showing the figure.
+var smile_img = "./smile.bmp";//when typing right key, show this pic.
+var sad_img = "./sad.bmp";//when typing wrong key, show this pic.
+//var jg = new jsGraphics("myCanvas");
+var midle_relax_interval=2000;//
+var progressbar=0;//
+var bar_length=300;//
+var update_interval=midle_relax_interval/bar_length;//
+var current_index=0;
+var current_start_time=getTimestamp();
+var ristrict_time=99999999;
+
+//var all_a=new Array(new ari_obj(add_l,add_r,add_result,add_correct_result,"+"),new ari_obj(sub_l,sub_r,sub_result,sub_correct_result,"-"),new ari_obj(mul_l,mul_r,mul_result,mul_correct_result,"×"),new ari_obj(div_l,div_r,div_result,div_correct_result,"/"));
+
+//var all_a=new Array(new ari_obj(mul_l,mul_r,mul_result,mul_correct_result,"+"));
+var all_a=new Array(new ari_obj(mul_l,mul_result,mul_correct_result));
+
+/* 按任意键继续 */
+function any_key_start()
+{
+	current_start_time=getTimestamp();
+	current_index=0;
+	document.getElementById("myCanvas").style.display = "none";
+	
+	var stroopnum_tips=document.getElementById("stroopnum_tip");
+	stroopnum_tips.style.display="block";
+	stroopnum_tips.innerHTML="<br/><fmt:message key="jsp.OPES.anykey"/>...";
+	document.onkeydown = ignor_key_press;
+}
+function ignor_key_press()
+{
+	current_start_time=getTimestamp();//record part start time
+	var stroopnum_tips=document.getElementById("stroopnum_tip");
+	stroopnum_tips.style.display="none";
+	setTimeout("show_fixation()", blank_interval);
+}
+/* the beginning method, in actural it is show blank screen */
+function show_fixation()
+{
+	document.getElementById("feed_back_div").style.display="none";
+	if(index<all_a.length)
+	{
+		var need_ralex=false;//(index<all_a.length-1);//the last portion
+		if((getTimestamp()-current_start_time>ristrict_time)||current_index>=all_a[index].length)//relax
+		{
+			index++;
+			if(need_ralex)
+			{
+				document.getElementById("upper").innerHTML = " ";
+				document.getElementById("nether").innerHTML = " ";
+				document.getElementById("stroopnum_tip").innerHTML = " ";
+				document.getElementById("myCanvas").style.display = "block";
+				document.getElementById("myCanvasSpan").innerHTML="<br/>请休息"+midle_relax_interval/1000+"秒钟，接下来是"+all_a[index].signer+"法运算";
+				start_progressbar();
+				document.onkeydown =null;
+				setTimeout("any_key_start()", midle_relax_interval+4000);
+			}else if(index<all_a.length)
+			{
+				current_index=0;
+				setTimeout("change_view()", blank_interval);
+			}else
+			{
+				post_result();
+			}
+			
+			
+		}else
+		{
+			setTimeout("change_view()", blank_interval);
+		}
+		
+	}else
+	{
+		post_result();
+	}
+}
+
+
+function change_view()
+{
+		var stroop=all_a[index];
+		//document.getElementById("upper").innerHTML = stroop.l_array[current_index]+stroop.signer+stroop.r_array[current_index];
+		
+		document.getElementById("upper").innerHTML = stroop.l_array[current_index];//+stroop.signer+stroop.r_array[current_index];
+		setTimeout("show_black()",figure_show_interval);
+		
+		
+/*
+		all_a[index].user_result[current_index]=undef_key;
+		all_a[index].user_time[current_index]=undef_time;
+		timestamp = getTimestamp();
+		
+		current_index++;
+		
+		//timer_id = setTimeout("show_fixation()",trial_interval);
+		document.onkeydown = key_down;
+	
+	*/
+}
+
+//黑屏 1s
+function show_black()
+{
+	document.getElementById("upper").innerHTML = " ";
+	document.getElementById("nether").innerHTML = " ";
+	setTimeout("show_test()",black_interval); //after 1s to show show_test
+}
+
+//显示测试数据
+function show_test()
+{
+	var stroop=all_a[index];
+
+	document.getElementById("upper").innerHTML = stroop.result_array[current_index];
+
+	all_a[index].user_result[current_index]=undef_key;
+	all_a[index].user_time[current_index]=undef_time;
+	timestamp = getTimestamp();
+		
+	current_index++;
+		
+		//timer_id = setTimeout("show_fixation()",trial_interval);
+	document.onkeydown = key_down;
+}
+
+function add_result_to_form(id, value)
+{
+   var elem = document.createElement("input");
+   elem.setAttribute("type", "text");
+   elem.setAttribute("id", id);
+   elem.setAttribute("name", id);
+   elem.setAttribute("value", value);
+   
+   document.getElementById("result").appendChild(elem);
+}
+
+function post_result()
+{
+	alert("做完了");
+	var corrects=new Array();
+	var users=new Array();
+	var usertime=new Array();
+	for(var i=0;i<all_a.length;i++)
+	{
+		var mdcobj=all_a[i];
+		corrects=add_array(corrects,get_related_result(mdcobj.correct_result_array,mdcobj.user_result.length));
+		users=add_array(users,mdcobj.user_result);
+		usertime=add_array(usertime,mdcobj.user_time);
+	}
+	/*
+	for(var i=0;i<all_a.length;i++)
+	{
+		var mdcobj=all_a[i];
+		alert(typeof(mdcobj.correct_result_array)+"   "+mdcobj.user_result.join(";"));
+		add_result_to_form("correct_result", mdcobj.correct_result_array.join(";"));
+		add_result_to_form("user_result", mdcobj.user_result.join(";"));
+		//add_result("user_time", rc_time.join(";"));
+	}
+	*/
+	add_result_to_form("correct_result",corrects.join(";"));
+	add_result_to_form("user_result",users.join(";"));
+	add_result_to_form("user_time", usertime.join(";"));
+	add_result_to_form("duration",getTimestamp()-start_time);
+
+	document.getElementById("result").submit();	
+	
+}
+
+
+function key_down(e)
+{
+	var keyhit=check_keyhit(e);
+	if(!keyhit)
+	{
+		return;
+	}
+
+	if ( all_a[index].user_result[current_index-1] == undef_key )//if is the first type key q or p
+	{
+		clearInterval(timer_id);
+	
+		var key = undef_key;
+
+		if (keyhit == '81')// q
+		{	
+			key = "Q";
+		}
+		if (keyhit == '87')// w
+		{	
+			key = "P";
+		}
+		if (keyhit == '79')// O
+		{	
+			key = "Q";
+		}
+		if (keyhit == '80')// p
+		{	
+			key = "P";
+		}
+	   
+	   all_a[index].user_result[current_index-1] = key;	   
+	   all_a[index].user_time[current_index-1] = getTimestamp()-timestamp;
+	    show_user_result();
+   }
+}
+function show_user_result()
+{
+	document.getElementById("feed_back_div").style.display="block";
+	document.getElementById("upper").innerHTML = " ";
+	document.getElementById("nether").innerHTML = " ";
+	//alert(all_a[index].user_result[current_index-1]+"  uc  "+all_a[index].correct_result_array[current_index-1]);
+	if(all_a[index].user_result[current_index-1]==all_a[index].correct_result_array[current_index-1])
+	{
+		document.getElementById("feed_back_img").src = smile_img ;
+		//document.getElementById("message").innerHTML = "正确! 能否再快一些！";
+		//document.getElementById('messageimageObj').src =pleased_image;
+	}else
+	{
+		document.getElementById("feed_back_img").src = sad_img ;
+		//document.getElementById("message").innerHTML = "错误! 加油！";
+		//document.getElementById('messageimageObj').src =depressed_image;
+	}
+	setTimeout("show_fixation()",feedback_interval);
+	
+}
+function check_keyhit(e)
+{
+	var typed_key;
+	if (window.event)
+	{  
+		typed_key = window.event.keyCode;
+	}
+	else
+	{
+		typed_key = e.which;
+	}
+	//alert(typed_key);
+	if (typed_key == '81'||typed_key == '80'||typed_key == '79'||typed_key == '87')
+	{	
+		return typed_key;
+	}else
+	{
+		alert("只能用食指按一下Q或P键");
+		document.onkeydown = key_down;
+		return false;
+	}
+	
+}
+function show_status_bar()
+{
+	jg.setColor("#ffeeaa");
+	jg.drawRect(20,70,bar_length,20);// x-pix y-pix width height
+	jg.paint();
+	jg.setColor("#00aaaa");
+	jg.fillRect(20,70,progressbar,20);
+	jg.paint();
+	if(progressbar<bar_length)
+	{
+		setTimeout("show_status_bar()",update_interval);
+	}
+	progressbar++;	
+}
+
+function start_progressbar()
+{
+	jg.clear();
+	progressbar=0;
+	setTimeout("show_status_bar()",0);
+}
+
+
+function draw_dot()
+{
+	//alert(event.clientX);
+	jg_doc.clear();
+	var x=event.clientX;
+	var y=event.clientY;
+	alert(x);
+	jg_doc.setColor("#ffeeaa");
+	jg_doc.fillOval(x,y,radius,radius);
+	jg_doc.paint();
+}
+
+
+
+
+function ari_obj(l_array,result_array,correct_result_array)
+{
+	/*if(l_array.length!=r_array.length)
+	{
+		alert("l_array.length!=r_array.length");
+	}
+	*/
+	this.l_array=l_array;
+	//this.r_array=r_array;
+	this.result_array=result_array;
+	this.correct_result_array=correct_result_array;
+	//this.signer=signer;
+	this.length=l_array.length;
+	this.user_result=new Array();
+	this.user_time=new Array();
+	return this;
+}
+function getTimestamp()
+{
+	var now = new Date();
+	return now.getTime(); // in ms
+}
+ 
+function start()
+{
+	document.getElementById('loading').style.display="none";
+	start_time=getTimestamp();
+	any_key_start();
+}
+function show_loading()
+{
+	document.getElementById('imageObj').src =loading_image;
+	setTimeout("start()", start_delay);
+}
+window.onload = show_loading
+ 
+</script>
+
+
+</html>

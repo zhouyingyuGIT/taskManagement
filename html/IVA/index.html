@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视听整合连续测试系统</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css" />
+
+</head>
+
+<body>
+    <div class="pages" id="pages">
+
+        <!-- 边框美化 -->
+        <div class="border1">
+            <div class="border2">
+                <!--<div style="position: fixed;top: 24px;">
+                    <input style="width: 300px" id="time1" type="text" placeholder="方块呈现时间(默认2000)"><br />
+                    <input style="width: 300px" id="time2" type="text" placeholder="第一句呈现时间(默认1000)"><br />
+                    <input style="width: 300px" id="time3" type="text" placeholder="数字1呈现时间(默认500)"><br />
+                    <input style="width: 300px" id="time4" type="text" placeholder="间隙时间(默认1000)"><br />
+                    <input style="width: 300px" id="time5" type="text" placeholder="第二句呈现时间(默认2000)"><br />
+                    <input style="width: 300px" id="time6" type="text" placeholder="第三句呈现时间(默认2000)"><br />
+                    <input style="width: 300px" id="time7" type="text" placeholder="第四句呈现时间(默认2000)"><br />
+                    <button id="timeBtn">确认(时间单位为毫秒)</button>
+                </div>-->
+                <div class="box">
+                    <!-- 视听整合连续测试系统 描述 -->
+                    <div id="mainTestDesc" class="main-test-desc">
+                        <!-- 测试练习手动进入 -->
+                        <h6>视听整合连续测试系统</h6>
+                        <dl>
+                            <dd>首先进入热身阶段</dd>
+                            <dd>请集中注意力并握住鼠标</dd>
+                            <dd>准备好后，按下（W）键开始</dd>
+                        </dl>
+                    </div>
+                    <!-- 起始页面 视听整合练习测验 -->
+                    <div id="AudiovisualIntegrationPractice" class="audiovisual-integration-practice hide">
+                        <h6>视听整合连续测验</h6>
+                        <p>本测试将从用于眼睛、耳朵和鼠标的热身训练开始</p>
+                        <span>请按(W)键开始热身测试</span>
+                    </div>
+                    <!-- 1. 视觉测试 -->
+                    <div id="viewTest" class="view-test">
+                        <div id="hottestPart1" class="hot-test-part1 hide">
+                            <h6 id="hottestPart1H6" class="visbili-hide">你会在屏幕上看到闪的数字，就像这样:</h6>
+                            <div id="hottestPartTipsPart1" class="visbili-hide">
+                                数字始终是(1)
+                            </div>
+                            <div id="hottestPartTipsPart2" class="visbili-hide">
+                                当你看到数字时，请点击鼠标左键一次
+                            </div>
+                            <p id="hottestPart1P">
+                                <span id="hottestPart1Span" class="hide">1</span>
+                            </p>
+                            <div id="hottestPartTipsPart3" class="visbili-hide">
+                                请尽量快速并准确地点击鼠标
+                            </div>
+                            <div id="hottestPartTipsPart4" class="visbili-hide">
+                                准备好后，按下（S）键开始
+                            </div>
+                        </div>
+                        <div id="starHotTestView" class="start-hotTest-view hide">
+                            <p>
+                                <span id="starHotTestViewArea" class="hide">1</span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 2. 听觉测试 -->
+                    <div id="soundTest" class="sound-test hide">
+                        <div id="soundhottestPart1" class="hot-test-part1 hide">
+                            <h6 id="soundhottestPart1H6" class="visbili-hide">现在你会听到一个数字，就像这样：</h6>
+                            <div id="soundhottestPartTipsPart1" class="visbili-hide">
+                                数字始终是(1)
+                            </div>
+                            <div id="soundhottestPartTipsPart2" class="visbili-hide">
+                                当你听到数字时，请点击鼠标左键一次
+                            </div>
+                            <p>
+                                <span id="soundhottestPart1Span" class="hide">1</span>
+                            </p>
+                            <div id="soundhottestPartTipsPart3" class="visbili-hide">
+                                请尽量快速并准确地点击鼠标
+                            </div>
+                            <div id="soundhottestPartTipsPart4" class="visbili-hide">
+                                准备好后，按下（S）键开始
+                            </div>
+                        </div>
+                        <div id="starHotTestSound" class="start-hotTest-view hide">
+                            <p class="">
+                                <span id="starHotTestSoundArea" class="hide">1</span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 3. 练习阶段（本阶段不记录数据） -->
+                    <div id="exerciseTest" class="exercise-test hide">
+                        <div id="exerciseTestPart1" class="hot-test-part1">
+                            <h6 id="exerciseTestPart1H6" class="visbili-hide">现在你会看到或听到数字(1)或(2)</h6>
+                            <div id="exerciseTestPartTipsPart1" class="visbili-hide">
+                                数字将会以不同的方式混合出现.就像这样:
+                            </div>
+                            <p>
+                                <span id="exerciseTestPart1Span" class="hide"></span>
+                            </p>
+                            <div id="exerciseTestPartTipsPart2" class="visbili-hide">
+                                当你看到或听到数字(1)时，点击鼠标左键一次
+                            </div>
+                            <div id="exerciseTestPartTipsPart3" class="visbili-hide">
+                                请尽量快速并准确地点击鼠标
+                            </div>
+                            <div id="exerciseTestPartTipsPart4" class="visbili-hide">
+                                准备好后，按下（P）键开始
+                            </div>
+                        </div>
+                        <div id="exerciseTestStart" class="start-exercisetest start-hotTest-view hide">
+                            <p>
+                                <span id="exerciseTestArea" class="hide">1</span>
+                            </p>
+                            <div id="oopsTips" class="oops-tips hide">
+                                OOPS
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 4. 目标测试 + 干扰测试 -->
+                    <div id="blendTest" class="blend-test hide">
+                        <!-- part1 描述测试信息 -->
+                        <dl id="blendTestDesc" class="blend-test-desc">
+                            <dt class="m20">下面进入IVA主要测试环节</dt>
+                            <dd class="m20">这个测试主要持续15分钟，请尽最大能力保持警惕</dd>
+                            <dd class="m20">如果你犯了错误，没关系，继续测试</dd>
+                            <dd class="m20">如果决定进行测试，请按(D)进行测试</dd>
+                        </dl>
+                        <!-- 测试出现的方框 -->
+                        <div id="blendTestArea" class="blend-test-area hide">
+                            <p class="show-area-P">
+                                <span id="blendTestAreaSpan" class="hide">1</span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 5. 恢复测试 -->
+                    <div id="recoveryTest" class="recovery-test hide">
+                        <!-- 恢复视觉测试 -->
+                        <div id="recoveryViewTest" class="view-test hide">
+                            <div id="recoveryViewTestPart1" class="hot-test-part1 hide">
+                                <h6 id="recoveryViewTestPart1H6" class="visbili-hide">你会在屏幕上看到闪的数字，就像这样:</h6>
+                                <div id="recoveryViewTestPartTipsPart1" class="visbili-hide">
+                                    数字始终是(1)
+                                </div>
+                                <div id="recoveryViewTestPartTipsPart2" class="visbili-hide">
+                                    当你看到数字时，请点击鼠标左键一次
+                                </div>
+                                <p id="recoveryViewTestPart1P">
+                                    <span id="recoveryViewTestPart1Span" class="hide">1</span>
+                                </p>
+                                <div id="recoveryViewTestPartTipsPart3" class="visbili-hide">
+                                    请尽量快速并准确地点击鼠标
+                                </div>
+                                <div id="recoveryViewTestPartTipsPart4" class="visbili-hide">
+                                    准备好后，按下（S）键开始
+                                </div>
+                            </div>
+                            <!-- 测试出现的方框 -->
+                            <div id="recoveryViewTestArea" class="blend-test-area hide">
+                                <p class="show-area-P">
+                                    <span id="recoveryViewTestAreaSpan" class="hide">1</span>
+                                </p>
+                            </div>
+                            
+                        </div>
+                         <!-- 恢复听觉测试 -->
+                        <div id="recoverySoundTest" class="sound-test hide">
+                            <div id="recoverysoundhottestPart1" class="hot-test-part1 hide">
+                                <h6 id="recoverysoundhottestPart1H6" class="visbili-hide">现在你会听到一个数字，就像这样：</h6>
+                                <div id="recoverysoundhottestPartTipsPart1" class="visbili-hide">
+                                    数字始终是(1)
+                                </div>
+                                <div id="recoverysoundhottestPartTipsPart2" class="visbili-hide">
+                                    当你听到数字时，请点击鼠标左键一次
+                                </div>
+                                <p>
+                                    <span id="recoverysoundhottestPart1Span" class="hide">1</span>
+                                </p>
+                                <div id="recoverysoundhottestPartTipsPart3" class="visbili-hide">
+                                    请尽量快速并准确地点击鼠标
+                                </div>
+                                <div id="recoverysoundhottestPartTipsPart4" class="visbili-hide">
+                                    准备好后，按下（S）键开始
+                                </div>
+                            </div>
+                            <div id="recoverystarHotTestSound" class="start-hotTest-view hide">
+                                <p class="">
+                                    <span id="recoverystarHotTestSoundArea" class="hide">1</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 完成测试 -->
+                    <div id="completeAllTest" class="complete-all-test hide">
+                        <dl>
+                            <dt>已完成所有测试内容</dt>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="say-audio hide">
+
+            <audio id="speak1" controls="" preload="auto" hidden="" src="data:audio/mp3;base64,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"><!-- Audio files --><!--<source src="/static/audio/test.mp3" type="audio/mp3">--></audio>  
+            <audio id="speak2" controls="" preload="auto" hidden="" src="data:audio/mp3;base64,//OIxAAAAANIAAAAAExBTUUzLjk5LjMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//OIxABBXIDIAVlgADhXIjzASN6A2CkbTRdN9kMTS3R/gfPPuo+pmXEaAlWWTL5u0XULaM0CQKKr38WGBgZvsGBhE2+VAJm44AAAcOQTAObktWwYONmYlg3A4iHMAMD64EAOKQaFgrg3J8AgA0EQR4xwAgIi0QxHRmathY5p2f/f6U669evWc2Zr7HB5CYRHYln8BIEhRlOpSZw4EdGOAIDolEMD5bbf+ZmbnZMiOxLJ7RIEiJY5q++MLHLzRimt3YM42DA807M473mnTt70nb3mnLyY4diWT2iQJB5HjCxZVevwzfYMDyq8/+98p03vdZ117/sOas669/GHOp1198WLFh/5wYHlTs/sdvsGDmnZm+mIKaimZccnJcZgAAAA//OIxAA/tII+X5uoAoAAMQAABiMACMRyARgO4SiHDRVUzdA/+YHIJRgCxnhKLBxDkJLHZOBp4VAYpCYGFAh6TOiBnUYASfoGky6Bpk7+5sThIF9ADAy+A3gdgPIMQDF5ZBCCH23Q8AgHAYCAYGIQSACAwuqBsR/dTdwbBAhKF1Z0UwMYBqj/bb8S8OXFxhhALTAtMAeBQGAeCId/f+zOg63dCwBwQCw8BgWAQDgGNAkBhoCAEhsDDoBAxqCQb4PsAIgf/96f0Lug0ZoGxgO0MENVilRCwNiAsgDoQGgGBhcBjLFUMEbf+zf//+2X0C2gmVFuV3WQQ9J8+w4CADg///GQL6AnMmyDmAyhUTEFNRTMuOTkuMwAAAAAAAAAAAAA//OIxABDfBbmX5rJAptZKVUyUgMlZIykZHa0SSyT7Puwxl516pimRUOjxhIkWMggeDnPHgqrDnsWYVgGHbPGnRYZHS1UBSQBEPxGeIbwJKFliolKsEQAl2WkgZuIufWgOFt3hq7BMDAE44gREc0xGQKhyR28OVPlj485Q8ZI2GPO+zB9X4pJNluX9r0M9272mktLMZwZFZfKX2lnd3L2VjeMl/+4853daH3clMNRmge2D5iveifymzrVHUqZbsdpo7O6jeWV29Yt6Y1CYk2Oedl2oy7zZoadhy+ynKre3T63Ut1qTtB3OpbuUvcLvcKfVi3lSTXK17981/7l//hrdDG4b1e7v////+Z7z1y1ewz/////////v4flSJiCmooA//OIxABAPHqdhdmgAcAIAAixnLfwzjiqJVuT5ZrZ7tsJCGBfxwAs6rawVwZYugtIbA7YhwkqREMggJHgEpwNXbAHYgPADICwCkAFCACxcjgC9oGfIBhcPXD3ghBAYIoBnEwGWQgb1YCiYPVGUDbxGw54NnwbpCciZIeQwgBQHIKouIrIMbuZlcqF5000DA0M0DJSSlrUXUHXmCKZqYGRkZGS0DFZemaZNlknhwj8IBClhcQhMOUdNR1DLDqJ4tlMzJMzHOHolyeJ4jnKpDhcRAiBEOJo2MmS0kkkkqVSnVqf+ZJKU/pJJJKdJJjFBA+kkk///7f//9a6vsyj7qXWdWtA8um7IOb7IHVl9A9MmIKaimZccnJcZgAAAAAAAAAA//OIxAA9RIKV5NPRcGBAAMp8s8PjCspm4Zsg6ohYI7kfjYUFE0kzYRosXh13FgzDjQVPMgBtP1BsXRUMEYFyprVSPYKCjAAQjDXUDpOjO4T2OTYJWcF2o5EDCsTR2DLh0PDCiFC2CAwQZkCHFAEmLpC5kkEAUJczLHChMFbc2duZ1c1Zh0eXpCq8gYzJfWsv703FfWu81PTEFtj4h6joxVps3EIO8qz2SJNVRHXbi9yomaVnV1DzPAtsp9qpxb3oQjFVV9pW/vru/+366+eOIhU5r+JnmUVjjVb7Me+ufr/+4/95Vf///j//j7v7G2yQPclss0ORxEBxogsJEFJHCgwVTEFNRTMuOTkuMwAAAAAAAAAAAAAAAAAAAAAAAAAA//OIxAA3RIKijspFjIAEAyBzFk829es4IZQL4uyzZqLyWRUMyyjFEadR2HDjRCaCQGryGVQWgkMAoRkgJWQvugwBEjWiMHYiDZ8n0juDQzJLBKBgOmWQiM0REAEALpDkgIKgqpusdCWoOsRxpyD5XGKWLyGVVsFIsNMxV6kWny9TlHZwgwusy5aUECptGuuKywFgQCSEShkU6wnu9KC+NVInImNciTSSns48Eg1K/+ZFt7QpioAiSBgqs5w6mdpkhZiApjxAM4cUcUHDEQpKt7R27kK//9PWtdEDipYNAhSNQKFY9mDGbeYBTEFNRTMuOTkuMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//OIxAA73H6R5svPjKAAQHAv27IM+Bcc+eQ7l6pxZTEFDj4PL0tNdiiMRgBYnO8DpptOSTDhBoBl7WaI9GIccVhyBn/IiOCBhKAwIAjA54TiJJBliA40YKNMkwBDPAbwGACMYOEC55CsHChcphA0IOkixy6ZJblDtu02ZskijCkvlsiTVmpR9I+ueiEPIigORaQhdOCQXQ8B/tjhzpVkZzmgk5Vado4yekj+WsGD5YDjNGY2EuiqQpXG9HndXmrNdTL/////0dTjnQ7OQok0aEQwXY0kUGgyxyEzRFMcyhl991+POb9vu/s37oejnmz2REnHM5s1x0lHiZNyKYgpqKZlxyclxmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//OIxAA/dHaJ5NJFxYAACEZtG4CjrvikcDSnFgVjJhSpv2pxC5QJQXQfXQaOuZccWaMODMaHMCXN+JMoRSxHARgwZoUIzINSCMAGGDg4SNU2MbNNqaQ+EJwZGBQCZEsDBZjiJa1fIqNIBBaKUp0DJKWgY2Yc0YMkFhgERMxDqw4PTTR/TabK96Pa+3ddddlIpNca72tJiLAMEgRUiIS3Vgm/a6uFhcagt/piGXbsQNL5fMRpCWNYSrszIkSe3JqmKfaxY7mLOgJw8foGhPAklT35om5l921dO2////90RxLCHCDjAhAcWDOEY851br//9EVLreqGTOVCOjIehFKKDHdQqRZoIdxwUguRMQU1FMy45OS4zAAAAAAAAAAAAAAA//OIxABAPHaAAtMLxkXpeygGlUJxk1iZcnBAc2wcIUlpRpAY1CZAQVVhl1hjThpUhqlJjCo0TBcsyZEyAgBJzFlBxkZxmYIubEABqQKUixwDVgxOQrCguw8wo4yZBG40wFHlCSCRAkOFRLyqquABhMTKAUUUUMufCCooKC5gVShiY0pRmpQHGg5kAA0bRyCouWLqQ+VsJQA8wFi0PIcy8CmSii+G1VK15yJ5+IKlk316e/S2ZqEw1S1OvtREw9MwWmerfI2mvlNjzxsvKoSmp3C0tZdfUilJzOlfU33///9SsJIxjHdIkJFQODBoo4gqf//0MW1DIimM5ns33vfqxSiKlKUoIwggeGndBIGWmIKaimZccnJcZgAAAAAAAAAA//OIxAA+1Gp4DtZQ3QiArHShhgDYYRAgUAkTKCwUuULMqmA2tAUwMqqFrEA4KijsNzCNDKJBE5NrQxVQCCFITngQ1KgBBaZxZlMl/SI1HpdAVQGmmuLFUWUxVWUyGg0VllLbchY8niAJAgyHk+0AJjBl+RqAxwHFMpcKPjwIOoTvOAB6lMjAXcJUAKERzFgFHy/5mEqNsCQ6NbnttDcmZcCfgZ/sY9rtSLU1QmpFwa5B49phaS+OLdTmt44DkVUORALEwTmQLDiBIKOIorqtTfLXdRUdbf//////8XrFaLfURJQcg6JwECoEx6jbZuP7////2v4vaeum//qWn+/S+NuRm5piEXD60xBTUUzLjk5LjMAAAAAAAAAAAAAAAAAA//OIxAA8hHJsFtMPqQDMKcagkucmUw4mHIMAwGQjwcTEIovSVR40EBREWPEiIDEiZoYsCdcoYrUZEgLRjAjC2phFpecw4ZZCIdZZrCaJnjkNZmY5Sts9ThOXEXKbFL3Wc1hNKzR2FowS9qrUr03ncQvHQIAGmCBGIDojpDJ/ILJxrbBoBOwtMREwaEbRK99F1NGthkTB5ZNGzlmLnmoH7fBaOjKVx1xn4m7OPtWp9pvtazs0val6lNYDUqieeIiY2PGilzFczfVWnUNdP///2U1lcojHpJlBMKwlLh4GIGxsIhUse5l63//9kNVmPOR9LpVvbS1LmHFx5zDiQ2h6TEFNRTMuOTkuMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//OIxAA43HJMDMrPqQlmpwWrM4VEwWGRNVIEDBQlAWGGqBKNpYgYYAGoOGSE1owFSgxm6xS3KvEUn3L3LTYApyg6z6FOS3aBZ6pKnGhmUQqll0MyyLP68UDtdZk+kKmYFbk47eNOQmoczUVECBynChoYyl8yZNFzwIOXANVIKimoKgiVGnS6MJf4xNB+JJoXJL07bFtk674mnQ5sXSVtur4dt/62xZqiaAhB/ABHAegnEk1jppynfRWdaP7sas4l01mqxzvzShKRNT1YRhwHwpFoLhWEo8SOdv/5/mqmiHOaikUc5fRW/9fOmzShcdEgiYgpqKZlxyclxmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//OIxAA+DHnwAtYMvUm98G7TnMLmZSA0OGFUJyEQABjgFQBW9KhCMFEQCKHQaGjFYad5kLmInJ7hyTK4qIKJFkVgEKi9qtizmUtOR5XIkklSzhS5kLyOTBDzNZjDlQW01OZwFLl4tooMwlmimyyWpl3U/lJl8UblzqRTGYU19zGXLlbA27BVpPA90OwSLUSNWRKWROtVNUtslLIlqJFwlNGmmJkTrROvdkq1VJwoDIDgCKTGkoJPlZppxS5anzf3ynypprynxtk2Nlrynf/9rRJHWqn7P6NKtVTRpaCU5TonMlOEi0CRtzzrUSeZyvLbJUEi0Ep/ptmKmEjblqNinycp8SLRJiCmopmXHJyXGYAAAAAAAAAAAAAAAAAAAAAA//OIxAAAAANIAAAAAExBTUUzLjk5LjMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//OIxAAAAANIAAAAAExBTUUzLjk5LjMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"><!-- Audio files --><!--<source src="/static/audio/test.mp3" type="audio/mp3">--></audio>
+        </div>
+    </div>
+    <div id="music" style="position: fixed;top: 0px;width: 0px;height: 0px"></div>
+    <span id="hint" class="hide">只要点击一下鼠标</span>
+    <!--<script type="text/javascript" src="./js/main.js"></script>-->
+    <script src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+</body>
+
+</html>
