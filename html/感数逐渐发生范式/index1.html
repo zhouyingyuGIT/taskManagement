@@ -7,6 +7,7 @@
 </head>
 <body>
 <div id="box" class="box">
+    <div id="reward" class="hide div_flex"></div>
     <div id="item1" class="item item1">
         <div class="item1_1 div_flex">
             准备好后 按 空格键 开始正式测试。请比较屏幕左右哪边的圆点数量多；如果右侧圆点数量多，用右手食指按P键。左侧圆点数量多，用左手食指按Q键。
@@ -19,20 +20,12 @@
                     <img id="img" src="" alt="">
                 </div>
             </div>
-            <div id="ans">
-                <div class="ans div_flex">
-                    <input id="input" type="text" value="" oninput="value=value.replace(/[^\d]/g,'')">
-                </div>
-                <div class="ans div_flex">
-                    <button id="btn" class="btn">确认</button>
-                </div>
-            </div>
         </div>
     </div>
     <div id="item3" class="item item1 hide">
         <div class="item1_1 div_flex">谢谢</div>
     </div>
-    <div id="item4" class="item item1 hide div_flex" style="background: rgb(121,121,121);font-size: 100px;font-weight: 900;color: #fff;">
+    <div id="item4" class="item item4 hide div_flex">
 +
     </div>
 </div>
@@ -40,77 +33,107 @@
 <script src="../../js/jquery.3.4.1.js"></script>
 <script>
     $(function () {
-        var data=[
-            {"ID":"1","ANS":"1","TOPIC":"img/A_1_1.png"},
+        var data1=[
+
             {"ID":"2","ANS":"1","TOPIC":"img/A_1_2.png"},
             {"ID":"3","ANS":"1","TOPIC":"img/A_1_3.png"},
-            {"ID":"4","ANS":"2","TOPIC":"img/A_2_1.png"},
-            {"ID":"5","ANS":"2","TOPIC":"img/A_2_2.png"},
-            {"ID":"6","ANS":"2","TOPIC":"img/A_2_3.png"},
-            {"ID":"7","ANS":"3","TOPIC":"img/A_3_1.png"},
-            {"ID":"8","ANS":"3","TOPIC":"img/A_3_2.png"},
-            {"ID":"9","ANS":"3","TOPIC":"img/A_3_3.png"},
-            {"ID":"10","ANS":"4","TOPIC":"img/A_4_1.png"},
-            {"ID":"11","ANS":"4","TOPIC":"img/A_4_2.png"},
-            {"ID":"12","ANS":"4","TOPIC":"img/A_4_3.png"},
-            {"ID":"13","ANS":"5","TOPIC":"img/A_5_1.png"},
-            {"ID":"14","ANS":"5","TOPIC":"img/A_5_2.png"},
-            {"ID":"15","ANS":"5","TOPIC":"img/A_5_3.png"},
-            {"ID":"16","ANS":"6","TOPIC":"img/A_6_1.png"},
-            {"ID":"17","ANS":"6","TOPIC":"img/A_6_2.png"},
-            {"ID":"18","ANS":"6","TOPIC":"img/A_6_3.png"}/*,
-            {"ID":"19","ANS":"1","TOPIC":"img/B_1_1.png"},
-            {"ID":"20","ANS":"1","TOPIC":"img/B_1_2.png"},
-            {"ID":"21","ANS":"1","TOPIC":"img/B_1_3.png"},
-            {"ID":"22","ANS":"2","TOPIC":"img/B_2_1.png"},
-            {"ID":"23","ANS":"2","TOPIC":"img/B_2_2.png"},
-            {"ID":"24","ANS":"2","TOPIC":"img/B_2_3.png"},
-            {"ID":"25","ANS":"3","TOPIC":"img/B_3_1.png"},
-            {"ID":"26","ANS":"3","TOPIC":"img/B_3_2.png"},
-            {"ID":"27","ANS":"3","TOPIC":"img/B_3_3.png"},
-            {"ID":"28","ANS":"4","TOPIC":"img/B_4_1.png"},
-            {"ID":"29","ANS":"4","TOPIC":"img/B_4_2.png"},
-            {"ID":"30","ANS":"4","TOPIC":"img/B_4_3.png"},
-            {"ID":"31","ANS":"5","TOPIC":"img/B_5_1.png"},
-            {"ID":"32","ANS":"5","TOPIC":"img/B_5_2.png"},
-            {"ID":"33","ANS":"5","TOPIC":"img/B_5_3.png"},
-            {"ID":"34","ANS":"6","TOPIC":"img/B_6_1.png"},
-            {"ID":"35","ANS":"6","TOPIC":"img/B_6_2.png"},
-            {"ID":"36","ANS":"6","TOPIC":"img/B_6_3.png"}*/
+            {"ID":"4","ANS":"1","TOPIC":"img/A_1_4.png"},
+            {"ID":"5","ANS":"1","TOPIC":"img/A_1_5.png"},
+            {"ID":"6","ANS":"2","TOPIC":"img/A_2_1.png"},
+            {"ID":"7","ANS":"2","TOPIC":"img/A_2_2.png"},
+            {"ID":"8","ANS":"2","TOPIC":"img/A_2_3.png"},
+            {"ID":"9","ANS":"2","TOPIC":"img/A_2_4.png"},
+            {"ID":"10","ANS":"2","TOPIC":"img/A_2_5.png"},
+            {"ID":"11","ANS":"3","TOPIC":"img/A_3_1.png"},
+            {"ID":"12","ANS":"3","TOPIC":"img/A_3_2.png"},
+            {"ID":"13","ANS":"3","TOPIC":"img/A_3_3.png"},
+            {"ID":"14","ANS":"3","TOPIC":"img/A_3_4.png"},
+            {"ID":"15","ANS":"3","TOPIC":"img/A_3_5.png"},
+            {"ID":"16","ANS":"4","TOPIC":"img/A_4_1.png"},
+            {"ID":"17","ANS":"4","TOPIC":"img/A_4_2.png"},
+            {"ID":"18","ANS":"4","TOPIC":"img/A_4_3.png"},
+            {"ID":"19","ANS":"4","TOPIC":"img/A_4_4.png"},
+            {"ID":"20","ANS":"4","TOPIC":"img/A_4_5.png"},
+            {"ID":"21","ANS":"1","TOPIC":"img/B_1_1.png"},
+            {"ID":"22","ANS":"1","TOPIC":"img/B_1_2.png"},
+            {"ID":"23","ANS":"1","TOPIC":"img/B_1_3.png"},
+            {"ID":"24","ANS":"1","TOPIC":"img/B_1_4.png"},
+            {"ID":"25","ANS":"1","TOPIC":"img/B_1_5.png"},
+            {"ID":"26","ANS":"2","TOPIC":"img/B_2_1.png"},
+            {"ID":"27","ANS":"2","TOPIC":"img/B_2_2.png"},
+            {"ID":"28","ANS":"2","TOPIC":"img/B_2_3.png"},
+            {"ID":"29","ANS":"2","TOPIC":"img/B_2_4.png"},
+            {"ID":"30","ANS":"2","TOPIC":"img/B_2_5.png"},
+            {"ID":"31","ANS":"3","TOPIC":"img/B_3_1.png"},
+            {"ID":"32","ANS":"3","TOPIC":"img/B_3_2.png"},
+            {"ID":"33","ANS":"3","TOPIC":"img/B_3_3.png"},
+
+            {"ID":"35","ANS":"3","TOPIC":"img/B_3_5.png"},
+            {"ID":"36","ANS":"4","TOPIC":"img/B_4_1.png"},
+            {"ID":"37","ANS":"4","TOPIC":"img/B_4_2.png"},
+            {"ID":"38","ANS":"4","TOPIC":"img/B_4_3.png"},
+            {"ID":"39","ANS":"4","TOPIC":"img/B_4_4.png"},
+            {"ID":"40","ANS":"4","TOPIC":"img/B_4_5.png"}
         ];
-        var time1=100,time2=20,time3=1000;
-        var timer1=null,timer2=null,timer3=null;
-        var spacer=true,PKey=false;
-        var color_index=121,data_index=0;
+        var data2=[
+            {"ID":"1","ANS":"1","TOPIC":"img/A_1_1.png"},
+            {"ID":"34","ANS":"3","TOPIC":"img/B_3_4.png"},
+        ];
+        var data=data2;
+        var time1=100,time2=20,time3=1000,time4=1000,time5=1000;
+        var timer1=null,timer2=null,timer3=null,timer4=null,timer5=null;
+        var spacer=true,PKey=false,numKey=false,feedback=false;
+        var color_index=200,back_color=200,data_index=0;
         var time,beginTime,endTime;
         var stimidset=[],timeset=[],correctanswerset=[],buttonset=[],type4set=[],commentset=[];
         var data_length=data.length;
         pushArr(data);
+        function taskidFun(taskid){
+            if(taskid === "7036"){
+                data=data1;
+                feedback=true;
+            }else if(taskid === "7049"){
+                data=data2;
+                feedback=false;
+            }
+            data_length=data.length;
+            console.log(data_length);
+        }
+        function keyFun(key) {
+            if(numKey){
+                numKey=false;
+                clearIntervalFun();
+                endTime=new Date().getTime();
+                var ans=key;
+                var ans1=data[data_index].ANS;
+                time = (endTime - beginTime).toFixed(0);
+                stimidset.push(data[data_index].ID);
+                correctanswerset.push(ans1);
+                buttonset.push(ans);
+                type4set.push("1");
+                if(ans1 == ans){
+                    commentset.push("1");
+                    $("#reward").text("答对了")
+                }else {
+                    commentset.push("0");
+                    $("#reward").text("答错了")
+                }
+                timeset.push(time);
+                color_index=200;
+                if (feedback){
+                    data_index++;
+                    if(data_index>=data_length){
+                        timer5Fun();
+                        return;
+                    }
+                    topicFun(data_index);
+                    timer3Fun();
+                }else {
+                    timer4Fun();
+                }
+            }
+        }
 
-        $("#btn").on("click",function () {
-            var ans=$("#input").val();
-            var ans1=data[data_index].ANS;
-            time = (endTime - beginTime).toFixed(0);
-            stimidset.push(data[data_index].ID);
-            correctanswerset.push(ans1);
-            buttonset.push(ans);
-            type4set.push("1");
-            if(ans1 == ans){
-                commentset.push("1");
-            }else {
-                commentset.push("0");
-            }
-            timeset.push(time);
-            color_index=121;
-            data_index++;
-            if(data_index>=data_length){
-                $("#item2").addClass("hide");
-                $("#item3").removeClass("hide");
-                return;
-            }
-            topicFun(data_index);
-            timer3Fun();
-        });
         function timer1Fun() {
             $("#item2_1_1").css({"background":"rgb("+color_index+","+color_index+","+color_index+")"});
             timer1 = setInterval(function () {
@@ -120,9 +143,9 @@
             }, time1);
         }
         function timer2Fun() {
-            $("#item2_1_1").css({"background":"rgb(121,121,121)"});
+            $("#item2_1_1").css({"background":"rgb("+back_color+","+back_color+","+back_color+")"});
             timer2 = setInterval(function () {
-                color_index=color_index+0.2;
+                color_index=color_index-0.2;
                 timer1Fun();
                 clearInterval(timer2);
                 timer2=null;
@@ -137,11 +160,37 @@
                 timer1Fun();
                 topicAnsFun(true);
                 beginTime=new Date().getTime();
-                PKey=true;
+                // PKey=true;
+                numKey=true;
                 clearInterval(timer3);
                 timer3=null;
             }, time3);
         }
+        function timer4Fun() {
+            $("#reward").removeClass("hide");
+            timer4 = setInterval(function () {
+                $("#reward").addClass("hide");
+                data_index++;
+                if(data_index>=data_length){
+                    timer5Fun();
+                    return;
+                }
+                topicFun(data_index);
+                timer3Fun();
+                clearInterval(timer4);
+                timer4=null;
+            }, time4);
+        }
+        function timer5Fun() {
+            $("#item2").addClass("hide");
+            $("#item3").removeClass("hide");
+            timer5= setInterval(function () {
+                alert("结束");
+                clearInterval(timer5);
+                timer5=null;
+            }, time5);
+        }
+
         function topicAnsFun(y) {
             if(y){
                 $("#imgBox").removeClass("hide");
@@ -173,23 +222,44 @@
             var e = event || window.event;
             var k = e.keyCode || e.which;
             if(k === 32){
-                if(PKey){
-                    PKey=false;
-                    clearIntervalFun();
-                    topicAnsFun(false);
-                    endTime=new Date().getTime();
-                    $("#input").val("");
-                    $("#input").focus();
-                }
                 if(spacer){
                     spacer=false;
-                    PKey=true;
+                    // PKey=true;
+                    numKey=true;
                     $("#item1").addClass("hide");
                     $("#item2").removeClass("hide");
                     topicFun(data_index);
                     timer3Fun();
                 }
 
+            }
+
+            if(k === 97 || k === 49){
+                keyFun("1")
+            }
+            if(k===98 || k === 50){
+                keyFun("2")
+            }
+            if(k===99 || k === 51){
+                keyFun("3")
+            }
+            if(k===100 || k === 52){
+                keyFun("4")
+            }
+            if(k===101 || k === 53){
+                keyFun("5")
+            }
+            if(k===102 || k === 54){
+                keyFun("6")
+            }
+            if(k===103 || k === 55){
+                keyFun("7")
+            }
+            if(k===104 || k === 56){
+                keyFun("8")
+            }
+            if(k===105 || k === 57){
+                keyFun("9")
             }
         });
     })

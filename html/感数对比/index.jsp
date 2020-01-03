@@ -1,0 +1,421 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" import="com.lattice.entity.*" %>
+<%@ page language="java" import="com.lattice.dao.*,java.util.*" %>
+<%@ page import="javax.servlet.jsp.jstl.fmt.LocaleSupport" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>感数对比</title>
+    <link rel="stylesheet" href="index.css">
+    <SCRIPT src="/lattice/js/Statistics/Statistics.js" type=text/javascript></SCRIPT>
+    <script src="/lattice/js/oneui/opes_post_result_util.js"></script>
+</head>
+<%
+    Users u=(Users)request.getSession().getAttribute("cu");
+    int uid=u.getUserid();
+    int taskid=Integer.parseInt(request.getParameter("taskid"));
+    String lan=request.getParameter("lan");
+    String targetpagename=request.getParameter("targetpagename");
+
+    int projectid=0;
+    if (!(request.getParameter("projectid")==null)) {
+        projectid=Integer.parseInt(request.getParameter("projectid"));
+    }
+
+    int codematerial=0;
+    if (!(request.getParameter("codematerial")==null)) {
+        codematerial=Integer.parseInt(request.getParameter("codematerial"));
+    }
+
+    int sumitcoids=u.getCoid();
+
+
+    Vector
+            <OPES_Task> ots=OPES_TaskDAO.getOPES_aTask(Integer.parseInt(request.getParameter("taskid")),lan);
+    if (ots.size()==0)
+    {
+        response.sendRedirect("/lattice/"+targetpagename);
+        return;
+    }
+    ots.get(0).setProjectid(Integer.parseInt(request.getParameter("projectid")));
+    request.getSession().setAttribute("ot",ots.get(0));
+
+%>
+<body>
+<div id="box" class="box">
+    <div id="reward" class="hide div_flex"></div>
+    <div id="item1" class="item item1">
+        <div class="item1_1 div_flex">
+            <%=ots.get(0).getInstruction() %>
+        </div>
+    </div>
+    <div id="item2" class="item item2 div_flex hide">
+        <div id="item2_1" class="item2_1 div_flex">
+            <div id="item2_1_1" class="item2_1_1">
+                <img id="img1" src="" alt="">
+            </div>
+            <div id="item2_1_2" class="item2_1_1">
+                <img id="img2" src="" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="item3" class="item item1 hide">
+        <div class="item1_1 div_flex">谢谢</div>
+    </div>
+    <div id="item4" class="item item4 hide div_flex">
+        +
+    </div>
+</div>
+</body>
+<script src="/lattice/js/jquery.3.4.1.js"></script>
+<script>
+    $(function () {
+        var data1=[
+
+            {"ID":"2","ANS":"P","URL1":"img/B_1_1.png","URL2":"img/B_3_1.png"},
+            {"ID":"3","ANS":"P","URL1":"img/B_1_1.png","URL2":"img/B_4_1.png"},
+            {"ID":"4","ANS":"P","URL1":"img/B_2_1.png","URL2":"img/B_3_1.png"},
+            {"ID":"5","ANS":"P","URL1":"img/B_2_1.png","URL2":"img/B_4_1.png"},
+            {"ID":"6","ANS":"P","URL1":"img/B_2_1.png","URL2":"img/B_5_1.png"},
+            {"ID":"7","ANS":"P","URL1":"img/B_3_1.png","URL2":"img/B_4_1.png"},
+            {"ID":"8","ANS":"P","URL1":"img/B_3_1.png","URL2":"img/B_5_1.png"},
+            {"ID":"9","ANS":"P","URL1":"img/B_3_1.png","URL2":"img/B_6_1.png"},
+            {"ID":"10","ANS":"P","URL1":"img/B_4_1.png","URL2":"img/B_5_1.png"},
+            {"ID":"11","ANS":"P","URL1":"img/B_4_1.png","URL2":"img/B_6_1.png"},
+            {"ID":"12","ANS":"P","URL1":"img/B_4_1.png","URL2":"img/B_7_1.png"},
+            {"ID":"13","ANS":"P","URL1":"img/B_5_1.png","URL2":"img/B_6_1.png"},
+            {"ID":"14","ANS":"P","URL1":"img/B_5_1.png","URL2":"img/B_7_1.png"},
+            {"ID":"15","ANS":"P","URL1":"img/B_5_1.png","URL2":"img/B_8_1.png"},
+            {"ID":"16","ANS":"P","URL1":"img/B_6_1.png","URL2":"img/B_7_1.png"},
+            {"ID":"17","ANS":"P","URL1":"img/B_6_1.png","URL2":"img/B_8_1.png"},
+            {"ID":"18","ANS":"P","URL1":"img/B_7_1.png","URL2":"img/B_8_1.png"},
+            {"ID":"19","ANS":"Q","URL1":"img/B_2_1.png","URL2":"img/B_1_1.png"},
+            {"ID":"20","ANS":"Q","URL1":"img/B_3_1.png","URL2":"img/B_1_1.png"},
+            {"ID":"21","ANS":"Q","URL1":"img/B_4_1.png","URL2":"img/B_1_1.png"},
+            {"ID":"22","ANS":"Q","URL1":"img/B_3_1.png","URL2":"img/B_2_1.png"},
+            {"ID":"23","ANS":"Q","URL1":"img/B_4_1.png","URL2":"img/B_2_1.png"},
+            {"ID":"24","ANS":"Q","URL1":"img/B_5_1.png","URL2":"img/B_2_1.png"},
+            {"ID":"25","ANS":"Q","URL1":"img/B_4_1.png","URL2":"img/B_3_1.png"},
+            {"ID":"26","ANS":"Q","URL1":"img/B_5_1.png","URL2":"img/B_3_1.png"},
+            {"ID":"27","ANS":"Q","URL1":"img/B_6_1.png","URL2":"img/B_3_1.png"},
+            {"ID":"28","ANS":"Q","URL1":"img/B_5_1.png","URL2":"img/B_4_1.png"},
+            {"ID":"29","ANS":"Q","URL1":"img/B_6_1.png","URL2":"img/B_4_1.png"},
+            {"ID":"30","ANS":"Q","URL1":"img/B_7_1.png","URL2":"img/B_4_1.png"},
+            {"ID":"31","ANS":"Q","URL1":"img/B_6_1.png","URL2":"img/B_5_1.png"},
+            {"ID":"32","ANS":"Q","URL1":"img/B_7_1.png","URL2":"img/B_5_1.png"},
+            {"ID":"33","ANS":"Q","URL1":"img/B_8_1.png","URL2":"img/B_5_1.png"},
+            {"ID":"34","ANS":"Q","URL1":"img/B_7_1.png","URL2":"img/B_6_1.png"},
+            {"ID":"35","ANS":"Q","URL1":"img/B_8_1.png","URL2":"img/B_6_1.png"},
+            {"ID":"36","ANS":"Q","URL1":"img/B_8_1.png","URL2":"img/B_7_1.png"},
+            {"ID":"37","ANS":"P","URL1":"img/A_1_1.png","URL2":"img/A_2_1.png"},
+            {"ID":"38","ANS":"P","URL1":"img/A_1_1.png","URL2":"img/A_3_1.png"},
+            {"ID":"39","ANS":"P","URL1":"img/A_1_1.png","URL2":"img/A_4_1.png"},
+            {"ID":"40","ANS":"P","URL1":"img/A_2_1.png","URL2":"img/A_3_1.png"},
+            {"ID":"41","ANS":"P","URL1":"img/A_2_1.png","URL2":"img/A_4_1.png"},
+            {"ID":"42","ANS":"P","URL1":"img/A_2_1.png","URL2":"img/A_5_1.png"},
+            {"ID":"43","ANS":"P","URL1":"img/A_3_1.png","URL2":"img/A_4_1.png"},
+            {"ID":"44","ANS":"P","URL1":"img/A_3_1.png","URL2":"img/A_5_1.png"},
+            {"ID":"45","ANS":"P","URL1":"img/A_3_1.png","URL2":"img/A_6_1.png"},
+            {"ID":"46","ANS":"P","URL1":"img/A_4_1.png","URL2":"img/A_5_1.png"},
+            {"ID":"47","ANS":"P","URL1":"img/A_4_1.png","URL2":"img/A_6_1.png"},
+            {"ID":"48","ANS":"P","URL1":"img/A_4_1.png","URL2":"img/A_7_1.png"},
+            {"ID":"49","ANS":"P","URL1":"img/A_5_1.png","URL2":"img/A_6_1.png"},
+            {"ID":"50","ANS":"P","URL1":"img/A_5_1.png","URL2":"img/A_7_1.png"},
+            {"ID":"51","ANS":"P","URL1":"img/A_5_1.png","URL2":"img/A_8_1.png"},
+            {"ID":"52","ANS":"P","URL1":"img/A_6_1.png","URL2":"img/A_7_1.png"},
+            {"ID":"53","ANS":"P","URL1":"img/A_6_1.png","URL2":"img/A_8_1.png"},
+            {"ID":"54","ANS":"P","URL1":"img/A_7_1.png","URL2":"img/A_8_1.png"},
+            {"ID":"55","ANS":"Q","URL1":"img/A_2_1.png","URL2":"img/A_1_1.png"},
+            {"ID":"56","ANS":"Q","URL1":"img/A_3_1.png","URL2":"img/A_1_1.png"},
+            {"ID":"57","ANS":"Q","URL1":"img/A_4_1.png","URL2":"img/A_1_1.png"},
+            {"ID":"58","ANS":"Q","URL1":"img/A_3_1.png","URL2":"img/A_2_1.png"},
+            {"ID":"59","ANS":"Q","URL1":"img/A_4_1.png","URL2":"img/A_2_1.png"},
+            {"ID":"60","ANS":"Q","URL1":"img/A_5_1.png","URL2":"img/A_2_1.png"},
+            {"ID":"61","ANS":"Q","URL1":"img/A_4_1.png","URL2":"img/A_3_1.png"},
+            {"ID":"62","ANS":"Q","URL1":"img/A_5_1.png","URL2":"img/A_3_1.png"},
+
+            {"ID":"64","ANS":"Q","URL1":"img/A_5_1.png","URL2":"img/A_4_1.png"},
+            {"ID":"65","ANS":"Q","URL1":"img/A_6_1.png","URL2":"img/A_4_1.png"},
+            {"ID":"66","ANS":"Q","URL1":"img/A_7_1.png","URL2":"img/A_4_1.png"},
+            {"ID":"67","ANS":"Q","URL1":"img/A_6_1.png","URL2":"img/A_5_1.png"},
+            {"ID":"68","ANS":"Q","URL1":"img/A_7_1.png","URL2":"img/A_5_1.png"},
+            {"ID":"69","ANS":"Q","URL1":"img/A_8_1.png","URL2":"img/A_5_1.png"},
+            {"ID":"70","ANS":"Q","URL1":"img/A_7_1.png","URL2":"img/A_6_1.png"},
+            {"ID":"71","ANS":"Q","URL1":"img/A_8_1.png","URL2":"img/A_6_1.png"},
+            {"ID":"72","ANS":"Q","URL1":"img/A_8_1.png","URL2":"img/A_7_1.png"},
+            {"ID":"73","ANS":"P","URL1":"img/B_1_2.png","URL2":"img/B_2_2.png"},
+            {"ID":"74","ANS":"P","URL1":"img/B_1_2.png","URL2":"img/B_3_2.png"},
+            {"ID":"75","ANS":"P","URL1":"img/B_1_2.png","URL2":"img/B_4_2.png"},
+            {"ID":"76","ANS":"P","URL1":"img/B_2_2.png","URL2":"img/B_3_2.png"},
+            {"ID":"77","ANS":"P","URL1":"img/B_2_2.png","URL2":"img/B_4_2.png"},
+            {"ID":"78","ANS":"P","URL1":"img/B_2_2.png","URL2":"img/B_5_2.png"},
+            {"ID":"79","ANS":"P","URL1":"img/B_3_2.png","URL2":"img/B_4_2.png"},
+            {"ID":"80","ANS":"P","URL1":"img/B_3_2.png","URL2":"img/B_5_2.png"},
+            {"ID":"81","ANS":"P","URL1":"img/B_3_2.png","URL2":"img/B_6_2.png"},
+            {"ID":"82","ANS":"P","URL1":"img/B_4_2.png","URL2":"img/B_5_2.png"},
+            {"ID":"83","ANS":"P","URL1":"img/B_4_2.png","URL2":"img/B_6_2.png"},
+            {"ID":"84","ANS":"P","URL1":"img/B_4_2.png","URL2":"img/B_7_2.png"},
+            {"ID":"85","ANS":"P","URL1":"img/B_5_2.png","URL2":"img/B_6_2.png"},
+            {"ID":"86","ANS":"P","URL1":"img/B_5_2.png","URL2":"img/B_7_2.png"},
+            {"ID":"87","ANS":"P","URL1":"img/B_5_2.png","URL2":"img/B_8_2.png"},
+            {"ID":"88","ANS":"P","URL1":"img/B_6_2.png","URL2":"img/B_7_2.png"},
+            {"ID":"89","ANS":"P","URL1":"img/B_6_2.png","URL2":"img/B_8_2.png"},
+            {"ID":"90","ANS":"P","URL1":"img/B_7_2.png","URL2":"img/B_8_2.png"},
+            {"ID":"91","ANS":"Q","URL1":"img/B_2_2.png","URL2":"img/B_1_2.png"},
+            {"ID":"92","ANS":"Q","URL1":"img/B_3_2.png","URL2":"img/B_1_2.png"},
+            {"ID":"93","ANS":"Q","URL1":"img/B_4_2.png","URL2":"img/B_1_2.png"},
+            {"ID":"94","ANS":"Q","URL1":"img/B_3_2.png","URL2":"img/B_2_2.png"},
+            {"ID":"95","ANS":"Q","URL1":"img/B_4_2.png","URL2":"img/B_2_2.png"},
+            {"ID":"96","ANS":"Q","URL1":"img/B_5_2.png","URL2":"img/B_2_2.png"},
+            {"ID":"97","ANS":"Q","URL1":"img/B_4_2.png","URL2":"img/B_3_2.png"},
+            {"ID":"98","ANS":"Q","URL1":"img/B_5_2.png","URL2":"img/B_3_2.png"},
+            {"ID":"99","ANS":"Q","URL1":"img/B_6_2.png","URL2":"img/B_3_2.png"},
+            {"ID":"100","ANS":"Q","URL1":"img/B_5_2.png","URL2":"img/B_4_2.png"},
+            {"ID":"101","ANS":"Q","URL1":"img/B_6_2.png","URL2":"img/B_4_2.png"},
+            {"ID":"102","ANS":"Q","URL1":"img/B_7_2.png","URL2":"img/B_4_2.png"},
+            {"ID":"103","ANS":"Q","URL1":"img/B_6_2.png","URL2":"img/B_5_2.png"},
+            {"ID":"104","ANS":"Q","URL1":"img/B_7_2.png","URL2":"img/B_5_2.png"},
+            {"ID":"105","ANS":"Q","URL1":"img/B_8_2.png","URL2":"img/B_5_2.png"},
+            {"ID":"106","ANS":"Q","URL1":"img/B_7_2.png","URL2":"img/B_6_2.png"},
+            {"ID":"107","ANS":"Q","URL1":"img/B_8_2.png","URL2":"img/B_6_2.png"},
+            {"ID":"108","ANS":"Q","URL1":"img/B_8_2.png","URL2":"img/B_7_2.png"},
+            {"ID":"109","ANS":"P","URL1":"img/A_1_2.png","URL2":"img/A_2_2.png"},
+            {"ID":"110","ANS":"P","URL1":"img/A_1_2.png","URL2":"img/A_3_2.png"},
+            {"ID":"111","ANS":"P","URL1":"img/A_1_2.png","URL2":"img/A_4_2.png"},
+            {"ID":"112","ANS":"P","URL1":"img/A_2_2.png","URL2":"img/A_3_2.png"},
+            {"ID":"113","ANS":"P","URL1":"img/A_2_2.png","URL2":"img/A_4_2.png"},
+            {"ID":"114","ANS":"P","URL1":"img/A_2_2.png","URL2":"img/A_5_2.png"},
+            {"ID":"115","ANS":"P","URL1":"img/A_3_2.png","URL2":"img/A_4_2.png"},
+            {"ID":"116","ANS":"P","URL1":"img/A_3_2.png","URL2":"img/A_5_2.png"},
+            {"ID":"117","ANS":"P","URL1":"img/A_3_2.png","URL2":"img/A_6_2.png"},
+            {"ID":"118","ANS":"P","URL1":"img/A_4_2.png","URL2":"img/A_5_2.png"},
+            {"ID":"119","ANS":"P","URL1":"img/A_4_2.png","URL2":"img/A_6_2.png"},
+            {"ID":"120","ANS":"P","URL1":"img/A_4_2.png","URL2":"img/A_7_2.png"},
+            {"ID":"121","ANS":"P","URL1":"img/A_5_2.png","URL2":"img/A_6_2.png"},
+            {"ID":"122","ANS":"P","URL1":"img/A_5_2.png","URL2":"img/A_7_2.png"},
+            {"ID":"123","ANS":"P","URL1":"img/A_5_2.png","URL2":"img/A_8_2.png"},
+            {"ID":"124","ANS":"P","URL1":"img/A_6_2.png","URL2":"img/A_7_2.png"},
+            {"ID":"125","ANS":"P","URL1":"img/A_6_2.png","URL2":"img/A_8_2.png"},
+            {"ID":"126","ANS":"P","URL1":"img/A_7_2.png","URL2":"img/A_8_2.png"},
+            {"ID":"127","ANS":"Q","URL1":"img/A_2_2.png","URL2":"img/A_1_2.png"},
+            {"ID":"128","ANS":"Q","URL1":"img/A_3_2.png","URL2":"img/A_1_2.png"},
+            {"ID":"129","ANS":"Q","URL1":"img/A_4_2.png","URL2":"img/A_1_2.png"},
+            {"ID":"130","ANS":"Q","URL1":"img/A_3_2.png","URL2":"img/A_2_2.png"},
+            {"ID":"131","ANS":"Q","URL1":"img/A_4_2.png","URL2":"img/A_2_2.png"},
+            {"ID":"132","ANS":"Q","URL1":"img/A_5_2.png","URL2":"img/A_2_2.png"},
+            {"ID":"133","ANS":"Q","URL1":"img/A_4_2.png","URL2":"img/A_3_2.png"},
+            {"ID":"134","ANS":"Q","URL1":"img/A_5_2.png","URL2":"img/A_3_2.png"},
+            {"ID":"135","ANS":"Q","URL1":"img/A_6_2.png","URL2":"img/A_3_2.png"},
+            {"ID":"136","ANS":"Q","URL1":"img/A_5_2.png","URL2":"img/A_4_2.png"},
+            {"ID":"137","ANS":"Q","URL1":"img/A_6_2.png","URL2":"img/A_4_2.png"},
+            {"ID":"138","ANS":"Q","URL1":"img/A_7_2.png","URL2":"img/A_4_2.png"},
+            {"ID":"139","ANS":"Q","URL1":"img/A_6_2.png","URL2":"img/A_5_2.png"},
+            {"ID":"140","ANS":"Q","URL1":"img/A_7_2.png","URL2":"img/A_5_2.png"},
+            {"ID":"141","ANS":"Q","URL1":"img/A_8_2.png","URL2":"img/A_5_2.png"},
+            {"ID":"142","ANS":"Q","URL1":"img/A_7_2.png","URL2":"img/A_6_2.png"},
+            {"ID":"143","ANS":"Q","URL1":"img/A_8_2.png","URL2":"img/A_6_2.png"},
+            {"ID":"144","ANS":"Q","URL1":"img/A_8_2.png","URL2":"img/A_7_2.png"}
+        ];
+        var data2=[
+            {"ID":"1","ANS":"P","URL1":"img/B_1_1.png","URL2":"img/B_2_1.png"},
+            {"ID":"63","ANS":"Q","URL1":"img/A_6_1.png","URL2":"img/A_3_1.png"}
+        ];
+        var data=[];
+        var time1=200,time2=3000,time3=1000,time4=1000,time5=1000,maxtime=300;
+        var timer1=null,timer2=null,timer3=null,timer4=null,timer5=null,timer=null;
+        var spacer=true,QPKey=false;
+        var data_index=0,feedback=false,data_length,taskid;
+        var time,beginTime,endTime;
+        var stimidset=[],timeset=[],correctanswerset=[],buttonset=[],type4set=[],commentset=[];
+        taskid=getUrlParam("taskid");
+        taskidFun(taskid);
+        function taskidFun(taskid){
+            if(taskid === "7045"){
+                data=data1;
+                feedback=true;
+            }else if(taskid === "7050"){
+                data=data2;
+                feedback=false;
+            }
+            pushArr(data);
+            data_length=data.length;
+        }
+        function timer1Fun() {
+            $("#item2").removeClass("hide");
+            timer1 = setInterval(function () {
+                $("#item2").addClass("hide");
+                QPKey=true;
+                beginTime=new Date().getTime();
+                timer2Fun();
+                clearInterval(timer1);
+                timer1=null;
+            }, time1);
+        }
+        function timer2Fun() {
+            timer2 = setInterval(function () {
+                QPkeyFun(" ");
+                clearInterval(timer2);
+                timer2=null;
+            }, time2);
+        }
+        function timer3Fun() {
+            $("#item2").addClass("hide");
+            $("#item4").removeClass("hide");
+            timer3 = setInterval(function () {
+                $("#item4").addClass("hide");
+                $("#item2").removeClass("hide");
+                timer1Fun();
+                clearInterval(timer3);
+                timer3=null;
+            }, time3);
+        }
+        function timer4Fun() {
+            $("#reward").removeClass("hide");
+            timer4 = setInterval(function () {
+                $("#reward").addClass("hide");
+                data_index++;
+                if(data_index>=data_length){
+                    timer5Fun();
+                    return;
+                }
+
+                topicFun(data_index);
+                timer3Fun();
+                clearInterval(timer4);
+                timer4=null;
+            }, time4);
+        }
+        function timer5Fun() {
+            $("#item2").addClass("hide");
+            $("#item3").removeClass("hide");
+            timer5= setInterval(function () {
+                post_result();
+                clearInterval(timer5);
+                timer5=null;
+            }, time5);
+        }
+        function topicFun(data_index) {
+            $("#img1").attr("src",data[data_index].URL1);
+            $("#img2").attr("src",data[data_index].URL2);
+        }
+        function clearIntervalFun(){
+            clearInterval(timer2);
+            clearInterval(timer1);
+            timer2=null;
+            timer1=null;
+        }
+        function QPkeyFun(key){
+            clearInterval(timer2);
+            timer2=null;
+            var ans=data[data_index].ANS;
+            var ans1=key;
+            endTime=new Date().getTime();
+            time = (endTime - beginTime).toFixed(0);
+            timeset.push(time);
+            stimidset.push(data[data_index].ID);
+            correctanswerset.push(ans);
+            buttonset.push(ans1);
+            type4set.push("0");
+            if(ans == ans1){
+                $("#reward").text("答对了");
+                commentset.push("1");
+            }else {
+                $("#reward").text("答错了");
+                commentset.push("0");
+            }
+
+            if (feedback){
+                data_index++;
+                if(data_index>=data_length){
+                    timer5Fun();
+                    return;
+                }
+                topicFun(data_index);
+                timer3Fun();
+            }else {
+                timer4Fun();
+            }
+        }
+
+        $(document).keydown(function (event) {
+            var e = event || window.event;
+            var k = e.keyCode || e.which;
+            if(k === 32){
+                if(spacer){
+                    spacer=false;
+                    $("#item1").addClass("hide");
+                    topicFun(data_index);
+                    timer3Fun();
+                    timer = setInterval(function () {
+                        CountDown();
+                    }, 1000);
+                }
+            }
+            if(k===81){//Q
+                if(QPKey){
+                    QPKey=false;
+                    QPkeyFun("Q")
+
+                }
+            }
+            if(k===80){//P
+                if(QPKey){
+                    QPKey=false;
+                    QPkeyFun("P")
+
+                }
+            }
+        });
+
+        function CountDown() {
+            if (maxtime > 1) {
+                --maxtime;
+            } else{
+                post_result();
+                clearInterval(timer);
+                timer=null;
+            }
+        }
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        function pushArr(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        function post_result() {
+            // sumscore,meanscore,meanart;
+            var opes_result_data = {};
+            opes_result_data.taskid =<%= taskid %>;
+            opes_result_data.sumitcoids =<%= sumitcoids %>;
+            opes_result_data.targetpagename = "<%=targetpagename%>";
+            opes_result_data.codematerial =<%= codematerial %>;
+            opes_result_data.uid =<%= uid %>;
+            opes_result_data.lan = "<%=lan%>";
+            opes_result_data.projectid =<%= projectid %>;
+            opes_result_data.duration = 0;
+            opes_result_data.timeaverage = Math.round(0);
+            opes_result_data.type4set = type4set.join(";");
+            opes_result_data.stimidset = stimidset.join(";");
+            opes_result_data.correctanswerset = correctanswerset.join(";");
+            opes_result_data.time = "0";
+            opes_result_data.level = "0";
+            opes_result_data.timeset = timeset.join(";");
+            opes_result_data.radioset = "";
+            opes_result_data.buttonset = buttonset.join(";");
+            opes_result_data.commentset = commentset.join(";");
+            opes_result_data.numset = commentset.join(";");
+            opes_post_result_util_js_opes_post_result(opes_result_data);
+            return;
+        }
+    })
+</script>
+</html>
