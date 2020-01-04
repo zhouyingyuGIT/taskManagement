@@ -223,7 +223,7 @@
             {"ID":"63","ANS":"Q","URL1":"img/A_6_1.png","URL2":"img/A_3_1.png"}
         ];
         var data=[];
-        var time1=200,time2=3000,time3=1000,time4=1000,time5=1000,maxtime=300;
+        var time1=300,time2=3000,time3=1000,time4=1000,time5=1000,maxtime=300;
         var timer1=null,timer2=null,timer3=null,timer4=null,timer5=null,timer=null;
         var spacer=true,QPKey=false;
         var data_index=0,feedback=false,data_length,taskid;
@@ -255,6 +255,7 @@
         }
         function timer2Fun() {
             timer2 = setInterval(function () {
+                QPKey=false;
                 QPkeyFun(" ");
                 clearInterval(timer2);
                 timer2=null;
@@ -307,8 +308,7 @@
             timer1=null;
         }
         function QPkeyFun(key){
-            clearInterval(timer2);
-            timer2=null;
+            clearIntervalFun();
             var ans=data[data_index].ANS;
             var ans1=key;
             endTime=new Date().getTime();
