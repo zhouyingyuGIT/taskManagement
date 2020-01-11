@@ -91,7 +91,7 @@ var targetInterfereClickCount=0;
 var targetInterfereTotal=0;
 var targetInterfereIndex=0;
 var targetInterfereCountNum=50; //50
-var targetInterfereTotalNum=9; //9
+var targetInterfereTotalNum=3; //9
 var targetInterfereData=[];
 var targetTest=[3,1,3,3,1,2,1,1,3,3,1,4,3,1,3,1,1,3,2,3,3,3,1,3,1,4,1,1,1,3,2,3,3,3,1,1,3,4,1,1,3,1,3,4,3,1,3,3,2,1];
 // var targetTest=[3,1,3,3,1];
@@ -1040,6 +1040,7 @@ $("#pages").click(function (event) {
     if(targetInterfereClick){
         targetInterfereClickCount++;
         if(targetInterfereClickCount == 1){
+            //结束时间
             if(targetInterfereTestArr[targetInterfereIndex-1] == 1
                 || targetInterfereTestArr[targetInterfereIndex-1] == 3){
 
@@ -1050,7 +1051,6 @@ $("#pages").click(function (event) {
                 targetInterfereData[targetInterfereIndex-1] = 0;
             }
         }else {
-
             targetInterfereData[targetInterfereIndex-1] = 9;
         }
     }
