@@ -171,7 +171,7 @@ function init_task()
 			$("#reward").text("做对2个");
 			$("#reward").removeClass("hide");
 			setTimeout("fkFun()",2000);
-		}else if(cont === 2){
+		}else if(cont === 3){
 			$("#reward").text("3个全对");
 			$("#reward").removeClass("hide");
 			setTimeout("fkFun()",2000);
