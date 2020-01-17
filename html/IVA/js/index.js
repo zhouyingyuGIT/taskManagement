@@ -687,6 +687,12 @@ function targetInterfereShowFun(){
             visualRestorationTestFun();
             return;
         }
+        // 结束时间
+        if(targetInterfereClickCount === 0 && targetInterfereTestArr[targetInterfereIndex-1]===1){
+            console.log(targetInterfereIndex);
+        }else {
+            console.log("targetInterfereIndex");
+        }
         targetInterfereIndex++;
         targetInterfereClickCount=0;
 
@@ -1054,10 +1060,6 @@ $("#pages").click(function (event) {
             targetInterfereData[targetInterfereIndex-1] = 9;
         }
     }
-
-
-
-
 });
 $("#pages").mousedown(function(e){
 
